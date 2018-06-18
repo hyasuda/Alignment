@@ -1,0 +1,4520 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 24 24 571 818
+%%Title: Enscript Output
+%%For: Hiromasa Yasuda
+%%Creator: GNU Enscript 1.6.6
+%%CreationDate: Thu Sep 21 19:35:12 2017
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 6
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 6
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+%%IncludeResource: font Courier
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier /F-gs-font MF
+/F-gs-font 10 10 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [595 842] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript 1.6 6
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    % light bar
+    0 0 d_header_w d_header_h 2 div Box
+    .95 setgray fill
+
+    % dark gray boxes
+    /dbw d_header_h 2 mul def	% dark box width
+    /dbc .7 def			% dark box color
+
+    % left dark box.
+    0 0 dbw d_header_h Box
+    dbc setgray fill
+
+    0 setgray 
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop dbw exch sub 2 div 
+    d_header_h 5 div moveto show
+
+    % right dark box
+    d_header_w dbw sub 0 dbw d_header_h Box
+    dbc setgray fill
+
+    HeaderPageNumF setfont
+    1 setgray
+    pagenumstr dup
+    stringwidth pop dbw exch sub 2 div d_header_w dbw sub add
+    d_header_h .2 mul moveto show
+
+    % filename
+    0 setgray 
+    HeaderHDRF setfont
+    d_header_w fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        d_header_w user_header_left_str stringwidth pop sub 2 div 
+        h moveto user_header_left_str show
+      } {
+        dbw 5 add h moveto user_header_left_str show
+
+        d_header_w user_header_center_str stringwidth pop sub 2 div 
+        h moveto user_header_center_str show
+
+	d_header_w dbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} def
+%%EndResource
+/d_page_w 547 def
+/d_page_h 794 def
+/d_header_x 0 def
+/d_header_y 758 def
+/d_header_w 547 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 547 def
+/d_footer_h 0 def
+/d_output_w 547 def
+/d_output_h 758 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 1 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 745 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 745 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 745 M
+("fstream") s
+/F-gs-font 10 10 SF
+0 setgray
+5 734 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 734 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 734 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 734 M
+("TH1D.h") s
+/F-gs-font 10 10 SF
+0 setgray
+5 723 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 723 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 723 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 723 M
+("TVirtualfft.h") s
+/F-gs-font 10 10 SF
+0 setgray
+5 712 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 712 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 712 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 712 M
+("TF1.h") s
+/F-gs-font 10 10 SF
+0 setgray
+5 701 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 701 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 701 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 701 M
+("TCanvas.h") s
+/F-gs-font 10 10 SF
+0 setgray
+5 690 M
+(#) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+11 690 M
+(include) s
+/F-gs-font 10 10 SF
+0 setgray
+53 690 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 690 M
+("TMath.h") s
+/F-gs-font 10 10 SF
+0 setgray
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+5 668 M
+(// void Alignment\( string filefolder = "170211/", string filebase = "print_011_", int fCu) s
+5 657 M
+(t = 100, int fCut_scan = 100\){) s
+/F-gs-font 10 10 SF
+0 setgray
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+5 646 M
+(void) s
+/F-gs-font 10 10 SF
+0 setgray
+29 646 M
+( ) s
+/Courier-Bold 10 10 SUF
+0 0 1 setrgbcolor
+35 646 M
+(Alignment) s
+/F-gs-font 10 10 SF
+0 setgray
+89 646 M
+(\( string filebase = ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+209 646 M
+("/Users/YASUDA/Data/Alignment/170830/print_023") s
+/F-gs-font 10 10 SF
+0 setgray
+491 646 M
+(, ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+503 646 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+521 646 M
+( fC) s
+5 635 M
+(ut = 100, ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+65 635 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+83 635 M
+( fCut_scan = 100\){) s
+5 624 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 624 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 624 M
+( RangeMin = -0.04000;) s
+5 613 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 613 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 613 M
+( RangeMax =  0.04000;) s
+5 580 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 580 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 569 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 569 M
+(// reading csv file) s
+/F-gs-font 10 10 SF
+0 setgray
+5 558 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 558 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 547 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 547 M
+(// const int Nwave = 3;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 536 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 536 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 536 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 536 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 536 M
+( Nwave = 2; ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+143 536 M
+(// for calibration data not to include CH3 \( ONOSOKKI monitor for ) s
+5 525 M
+(measurement path \)) s
+/F-gs-font 10 10 SF
+0 setgray
+5 514 M
+(  stringstream filename;) s
+5 481 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+17 481 M
+(std) s
+/F-gs-font 10 10 SF
+0 setgray
+35 481 M
+(::vector<) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+89 481 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+125 481 M
+(> t[ Nwave];) s
+5 470 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+17 470 M
+(std) s
+/F-gs-font 10 10 SF
+0 setgray
+35 470 M
+(::vector<) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+89 470 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+125 470 M
+(> v[ Nwave];) s
+5 448 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 448 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 448 M
+( \( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 448 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 448 M
+( iwave = 0 ; iwave < Nwave ; iwave++ \){) s
+5 437 M
+(    filename.str\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 437 M
+("") s
+/F-gs-font 10 10 SF
+0 setgray
+119 437 M
+(\);) s
+5 426 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+29 426 M
+(// filename << "/Users/YASUDA/Data/Alignment/" << filefolder << filebase.c_str\(\) << i) s
+5 415 M
+(wave + 1 << ".csv";) s
+/F-gs-font 10 10 SF
+0 setgray
+5 404 M
+(    filename << filebase.c_str\(\) << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+221 404 M
+("_") s
+/F-gs-font 10 10 SF
+0 setgray
+239 404 M
+( << iwave + 1 << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+341 404 M
+(".dat") s
+/F-gs-font 10 10 SF
+0 setgray
+377 404 M
+(;) s
+5 382 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 382 M
+("opening ... ") s
+/F-gs-font 10 10 SF
+0 setgray
+161 382 M
+( << filename.str\(\).c_str\(\);) s
+5 371 M
+(    ifstream ifs\(filename.str\(\).c_str\(\) , std::ios::in \);) s
+5 360 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 360 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+41 360 M
+(\(!ifs\){) s
+5 349 M
+(      cout<<) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 349 M
+(" ... error, file not found") s
+/F-gs-font 10 10 SF
+0 setgray
+245 349 M
+( << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+269 349 M
+(":") s
+/F-gs-font 10 10 SF
+0 setgray
+287 349 M
+( << filename.str\(\).c_str\(\) <<  endl;) s
+5 338 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 338 M
+(return) s
+/F-gs-font 10 10 SF
+0 setgray
+77 338 M
+(;) s
+5 327 M
+(    }) s
+5 305 M
+(    string str;) s
+5 294 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 294 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+47 294 M
+( lineno = 0;) s
+5 283 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 283 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+47 283 M
+( iword = 0;) s
+5 272 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 272 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+59 272 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+65 272 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+83 272 M
+( N = 10;) s
+5 261 M
+(    string atoken[ N ];) s
+5 239 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 239 M
+(while) s
+/F-gs-font 10 10 SF
+0 setgray
+59 239 M
+(\(getline\(ifs,str\)\){) s
+5 228 M
+(      string token;) s
+5 217 M
+(      istringstream stream\(str\);) s
+5 195 M
+(      iword = 0;) s
+5 184 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 184 M
+(while) s
+/F-gs-font 10 10 SF
+0 setgray
+71 184 M
+(\(getline\(stream,token,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 184 M
+(' ') s
+/F-gs-font 10 10 SF
+0 setgray
+221 184 M
+(\)\){) s
+5 173 M
+(          ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+65 173 M
+(// cout << lineno << " " << iword << " " << token << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 162 M
+(          atoken[ iword ] = token;) s
+5 151 M
+(          iword++;) s
+5 140 M
+(      }) s
+5 129 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 129 M
+(//    cout << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 107 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 107 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+77 107 M
+( time;) s
+5 96 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 96 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+77 96 M
+( volt;) s
+5 74 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 74 M
+(switch) s
+/F-gs-font 10 10 SF
+0 setgray
+77 74 M
+( \(lineno\) {) s
+5 63 M
+(          ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+65 63 M
+(/* SAVE BY ASCII*/) s
+/F-gs-font 10 10 SF
+0 setgray
+5 52 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 52 M
+(// case 0 :) s
+/F-gs-font 10 10 SF
+0 setgray
+5 41 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 41 M
+(//   break;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 30 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 30 M
+(// case 1 :) s
+/F-gs-font 10 10 SF
+0 setgray
+5 19 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 19 M
+(//   break;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 8 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 8 M
+(default) s
+/F-gs-font 10 10 SF
+0 setgray
+83 8 M
+( :) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 2 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(        time = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+101 745 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+137 745 M
+(\) atof\( atoken[ 0 ].c_str\(\) \) ;) s
+5 734 M
+(        volt = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+101 734 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+137 734 M
+(\) atof\( atoken[ 1 ].c_str\(\) \) ;) s
+5 712 M
+(        ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+53 712 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+65 712 M
+(\(RangeMin < time && time < RangeMax\){) s
+5 701 M
+(          t[ iwave ].push_back\( time \);) s
+5 690 M
+(          v[ iwave ].push_back\( volt \);) s
+5 679 M
+(        }) s
+5 668 M
+(        ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+53 668 M
+(break) s
+/F-gs-font 10 10 SF
+0 setgray
+83 668 M
+(;) s
+5 657 M
+(      }) s
+5 635 M
+(      lineno++;) s
+5 624 M
+(    }) s
+5 602 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 602 M
+(", read ") s
+/F-gs-font 10 10 SF
+0 setgray
+131 602 M
+( << lineno << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+215 602 M
+(" lines.") s
+/F-gs-font 10 10 SF
+0 setgray
+269 602 M
+( << endl;) s
+5 580 M
+(    ifs.close\(\);) s
+5 569 M
+(  } ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+29 569 M
+(// iwave) s
+/F-gs-font 10 10 SF
+0 setgray
+5 547 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 547 M
+("number of point is ") s
+/F-gs-font 10 10 SF
+0 setgray
+191 547 M
+( << t[ 0 ].size\(\) << endl;) s
+5 525 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 525 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 514 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 514 M
+(// define root file/canvas/histogram) s
+/F-gs-font 10 10 SF
+0 setgray
+5 503 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 503 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 481 M
+(  stringstream rootfilename;) s
+5 470 M
+(  rootfilename.str\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+119 470 M
+("") s
+/F-gs-font 10 10 SF
+0 setgray
+131 470 M
+(\);) s
+5 459 M
+(  rootfilename << filebase.c_str\(\) << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+233 459 M
+(".root") s
+/F-gs-font 10 10 SF
+0 setgray
+275 459 M
+(;) s
+5 437 M
+(  TFile * tfile = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+113 437 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+131 437 M
+( TFile\( rootfilename.str\(\).c_str\(\) ,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+347 437 M
+("recreate") s
+/F-gs-font 10 10 SF
+0 setgray
+407 437 M
+(\);) s
+5 415 M
+(  TCanvas *c1 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 415 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 415 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 415 M
+("c1") s
+/F-gs-font 10 10 SF
+0 setgray
+197 415 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 415 M
+("c1") s
+/F-gs-font 10 10 SF
+0 setgray
+227 415 M
+(\);) s
+5 404 M
+(  TCanvas *c2 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 404 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 404 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 404 M
+("c2") s
+/F-gs-font 10 10 SF
+0 setgray
+197 404 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 404 M
+("c2") s
+/F-gs-font 10 10 SF
+0 setgray
+227 404 M
+(\);) s
+5 393 M
+(  TCanvas *c3 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 393 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 393 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 393 M
+("c3") s
+/F-gs-font 10 10 SF
+0 setgray
+197 393 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 393 M
+("c3") s
+/F-gs-font 10 10 SF
+0 setgray
+227 393 M
+(\);) s
+5 382 M
+(  TCanvas *c4 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 382 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 382 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 382 M
+("c4") s
+/F-gs-font 10 10 SF
+0 setgray
+197 382 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 382 M
+("c4") s
+/F-gs-font 10 10 SF
+0 setgray
+227 382 M
+(\);) s
+5 371 M
+(  TCanvas *c5 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 371 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 371 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 371 M
+("c5") s
+/F-gs-font 10 10 SF
+0 setgray
+197 371 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 371 M
+("c5") s
+/F-gs-font 10 10 SF
+0 setgray
+227 371 M
+(\);) s
+5 360 M
+(  TCanvas *c6 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 360 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 360 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 360 M
+("c6") s
+/F-gs-font 10 10 SF
+0 setgray
+197 360 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 360 M
+("c6") s
+/F-gs-font 10 10 SF
+0 setgray
+227 360 M
+(\);) s
+5 349 M
+(  TCanvas *c7 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 349 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 349 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 349 M
+("c7") s
+/F-gs-font 10 10 SF
+0 setgray
+197 349 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 349 M
+("c7") s
+/F-gs-font 10 10 SF
+0 setgray
+227 349 M
+(\);) s
+5 338 M
+(  TCanvas *c8 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 338 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 338 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 338 M
+("c8") s
+/F-gs-font 10 10 SF
+0 setgray
+197 338 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 338 M
+("c8") s
+/F-gs-font 10 10 SF
+0 setgray
+227 338 M
+(\);) s
+5 327 M
+(  TCanvas *c9 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+101 327 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+119 327 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 327 M
+("c9") s
+/F-gs-font 10 10 SF
+0 setgray
+197 327 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 327 M
+("c9") s
+/F-gs-font 10 10 SF
+0 setgray
+227 327 M
+(\);) s
+5 316 M
+(  TCanvas *c10 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+107 316 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+125 316 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 316 M
+("c10") s
+/F-gs-font 10 10 SF
+0 setgray
+209 316 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+215 316 M
+("c10") s
+/F-gs-font 10 10 SF
+0 setgray
+245 316 M
+(\);) s
+5 305 M
+(  TCanvas *c11 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+107 305 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+125 305 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 305 M
+("c11") s
+/F-gs-font 10 10 SF
+0 setgray
+209 305 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+215 305 M
+("c11") s
+/F-gs-font 10 10 SF
+0 setgray
+245 305 M
+(\);) s
+5 294 M
+(  TCanvas *c12 = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+107 294 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+125 294 M
+( TCanvas\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 294 M
+("c12") s
+/F-gs-font 10 10 SF
+0 setgray
+209 294 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+215 294 M
+("c12") s
+/F-gs-font 10 10 SF
+0 setgray
+245 294 M
+(\);) s
+5 272 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 272 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 272 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 272 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 272 M
+( n = t[ 0 ].size\(\);) s
+5 261 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 261 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 261 M
+( Fs = 100.000;) s
+5 239 M
+(  TH1D *hraw_comb = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 239 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 239 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 239 M
+("hraw_comb") s
+/F-gs-font 10 10 SF
+0 setgray
+245 239 M
+( ,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 239 M
+("Raw Waveform Comb") s
+/F-gs-font 10 10 SF
+0 setgray
+371 239 M
+(,n, RangeMin,RangeMax\);) s
+5 228 M
+(  hraw_comb->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 228 M
+("Second [s]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 228 M
+(\);) s
+5 217 M
+(  hraw_comb->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 217 M
+("Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+221 217 M
+(\);) s
+5 206 M
+(  hraw_comb->SetStats\(0\);) s
+5 184 M
+(  TH1D *hraw2_comb= ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 184 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 184 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 184 M
+("hraw2_comb") s
+/F-gs-font 10 10 SF
+0 setgray
+251 184 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 184 M
+("RawSquared Comb") s
+/F-gs-font 10 10 SF
+0 setgray
+359 184 M
+(,n,RangeMin,RangeMax\);) s
+5 173 M
+(  hraw2_comb->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 173 M
+("Second[s]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 173 M
+(\);) s
+5 162 M
+(  hraw2_comb->SetLineColor\(2\);) s
+5 151 M
+(  hraw2_comb->SetStats\(0\);) s
+5 129 M
+(  TH1D *hraw_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 129 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 129 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 129 M
+("hraw_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+245 129 M
+( ,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 129 M
+("Raw Waveform Scan") s
+/F-gs-font 10 10 SF
+0 setgray
+371 129 M
+(,n, RangeMin,RangeMax\);) s
+5 118 M
+(  hraw_scan->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 118 M
+("Second [s]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 118 M
+(\);) s
+5 107 M
+(  hraw_scan->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 107 M
+("Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+221 107 M
+(\);) s
+5 96 M
+(  hraw_scan->SetMarkerStyle\(20\);) s
+5 85 M
+(  hraw_scan->SetMarkerSize\(0.1\);) s
+5 74 M
+(  hraw_scan->SetStats\(0\);) s
+5 52 M
+(  TH1D *hraw_tgt  = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 52 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 52 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 52 M
+("hraw_tgt") s
+/F-gs-font 10 10 SF
+0 setgray
+239 52 M
+(  ,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 52 M
+("Raw Waveform Target") s
+/F-gs-font 10 10 SF
+0 setgray
+383 52 M
+(,n, RangeMin,RangeMax\);) s
+5 41 M
+(  hraw_tgt->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+137 41 M
+("Second [s]") s
+/F-gs-font 10 10 SF
+0 setgray
+209 41 M
+(\);) s
+5 30 M
+(  hraw_tgt->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+137 30 M
+("Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 30 M
+(\);) s
+5 8 M
+(  TH1 *hm    = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+95 8 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+113 8 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 8 M
+("hm") s
+/F-gs-font 10 10 SF
+0 setgray
+173 8 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 8 M
+("hm") s
+/F-gs-font 10 10 SF
+0 setgray
+203 8 M
+(,n,0.,Fs\);) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 3 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 745 M
+(//  hm->SetName\("MAGnoCut"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 734 M
+(  hm->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+95 734 M
+("Magnitude of the 1st transform") s
+/F-gs-font 10 10 SF
+0 setgray
+287 734 M
+(\);) s
+5 723 M
+(  hm->SetLineWidth\(2\);) s
+5 712 M
+(  hm->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+101 712 M
+("Frequency [kHz]") s
+/F-gs-font 10 10 SF
+0 setgray
+203 712 M
+(\);) s
+5 701 M
+(  hm->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+101 701 M
+("Magnitude") s
+/F-gs-font 10 10 SF
+0 setgray
+167 701 M
+(\);) s
+5 679 M
+(  TH1 *hmcut = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+95 679 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+113 679 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 679 M
+("hmcut") s
+/F-gs-font 10 10 SF
+0 setgray
+191 679 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+197 679 M
+("hmcut") s
+/F-gs-font 10 10 SF
+0 setgray
+239 679 M
+(,n,0.,Fs\);) s
+5 668 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 668 M
+(//  hmcut->SetName\("MAGCut"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 657 M
+(  hmcut->SetLineColor\(2\);) s
+5 624 M
+(  TH1 *hbcut = 0;) s
+5 602 M
+(  TH1 *hbcut2= ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+95 602 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+113 602 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 602 M
+("hbcut2") s
+/F-gs-font 10 10 SF
+0 setgray
+197 602 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+203 602 M
+("hbcut2") s
+/F-gs-font 10 10 SF
+0 setgray
+251 602 M
+(,n,RangeMin,RangeMax\);) s
+5 591 M
+(  hbcut2->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+119 591 M
+("Fringe after Low Path Filter") s
+/F-gs-font 10 10 SF
+0 setgray
+299 591 M
+(\);) s
+5 580 M
+(  hbcut2->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+125 580 M
+("Time[sec]") s
+/F-gs-font 10 10 SF
+0 setgray
+191 580 M
+(\);) s
+5 569 M
+(  hbcut2->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+125 569 M
+("Rescaled Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+257 569 M
+(\);) s
+5 558 M
+(  hbcut2->GetYaxis\(\)->SetRangeUser\(0.,8.\);) s
+5 547 M
+(  hbcut2->SetStats\(0\);) s
+5 536 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 536 M
+(// hist->GetXaxis\(\)->SetRangeUser\(first,last\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 492 M
+(  TH1D *h_diff   = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+119 492 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+137 492 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 492 M
+("h_diff") s
+/F-gs-font 10 10 SF
+0 setgray
+221 492 M
+(,  ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+239 492 M
+("Diff") s
+/F-gs-font 10 10 SF
+0 setgray
+275 492 M
+(,n,RangeMin,RangeMax\);) s
+5 481 M
+(  TH1D *h_diffsw = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+119 481 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+137 481 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+173 481 M
+("h_diffsw") s
+/F-gs-font 10 10 SF
+0 setgray
+233 481 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+239 481 M
+("Diffsw") s
+/F-gs-font 10 10 SF
+0 setgray
+287 481 M
+(,n,RangeMin,RangeMax\);) s
+5 470 M
+(  h_diffsw->SetLineColor\(2\);) s
+5 448 M
+(  TH1D *hnoise_tgt  = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+137 448 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+155 448 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+191 448 M
+("hnoise_tgt") s
+/F-gs-font 10 10 SF
+0 setgray
+263 448 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+269 448 M
+("noise target") s
+/F-gs-font 10 10 SF
+0 setgray
+353 448 M
+(,150,-1.,11.\);) s
+5 437 M
+(  hnoise_tgt->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 437 M
+("Target Stage") s
+/F-gs-font 10 10 SF
+0 setgray
+227 437 M
+(\);) s
+5 426 M
+(  hnoise_tgt->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 426 M
+("Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+227 426 M
+(\);) s
+5 415 M
+(  hnoise_tgt->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 415 M
+("Event") s
+/F-gs-font 10 10 SF
+0 setgray
+191 415 M
+(\);) s
+5 393 M
+(  TH1D *hnoise_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+137 393 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+155 393 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+191 393 M
+("hnoise_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+269 393 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+275 393 M
+("noise scan") s
+/F-gs-font 10 10 SF
+0 setgray
+347 393 M
+(,9,-0.09,0.09\);) s
+5 382 M
+(  hnoise_scan->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 382 M
+("Scanning Stage") s
+/F-gs-font 10 10 SF
+0 setgray
+245 382 M
+(\);) s
+5 371 M
+(  hnoise_scan->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+155 371 M
+("Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+233 371 M
+(\);) s
+5 360 M
+(  hnoise_scan->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+155 360 M
+("Event") s
+/F-gs-font 10 10 SF
+0 setgray
+197 360 M
+(\);) s
+5 327 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 327 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 316 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 316 M
+(// filling histograms) s
+/F-gs-font 10 10 SF
+0 setgray
+5 305 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 305 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 283 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 283 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 283 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 283 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 283 M
+( icomb = 0;) s
+5 272 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 272 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 272 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 272 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 272 M
+( iscan = 1;) s
+5 261 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 261 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 261 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 261 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 261 M
+( itgt  = 2;) s
+5 239 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 239 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 239 M
+( \( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 239 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 239 M
+( i = 0 ; i < t[ icomb].size\(\) ; i++ \) {) s
+5 228 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 228 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+47 228 M
+( binn = hraw_comb->FindBin\( t[ icomb ][ i ] \);) s
+5 217 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 217 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+41 217 M
+(\(fabs\(hraw_comb->GetBinLowEdge\(binn\)- t[ icomb ][ i ]\)>0.00002) s
+5 206 M
+(       && binn!=0) s
+5 195 M
+(       && binn!=n+1) s
+5 184 M
+(       \){) s
+5 173 M
+(      binn += 1;) s
+5 162 M
+(    }) s
+5 151 M
+(    hraw_comb->SetBinContent\(binn, v[ icomb ][ i ] \);) s
+5 140 M
+(    hraw_scan->SetBinContent\(binn, v[ iscan ][ i ] \);) s
+5 129 M
+(    hraw_tgt->SetBinContent\(binn, v[ itgt ][ i ] \);) s
+5 107 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+29 107 M
+(// cout << binn << " " << hraw_comb->GetBinContent\(binn\) << " " << hraw_scan->GetBinC) s
+5 96 M
+(ontent\(binn\) << " " << hraw_tgt->GetBinContent\(binn\) << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 74 M
+(    hraw2_comb->SetBinContent\(binn, pow\( v[ icomb ][ i ], 2 \) \);) s
+5 52 M
+(    hnoise_tgt->Fill\( \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+143 52 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+179 52 M
+(\) v[ itgt ][ i ] \);) s
+5 41 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 41 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+41 41 M
+(\(binn<1000\){) s
+5 30 M
+(      hnoise_scan->Fill\( \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+161 30 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+197 30 M
+(\) v[ iscan ][ i ]\);) s
+5 19 M
+(    }) s
+5 8 M
+(  }) s
+_R
+S
+%%Page: (4) 4
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 4 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 734 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 734 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 723 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 723 M
+(// FFT) s
+/F-gs-font 10 10 SF
+0 setgray
+5 712 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 712 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 690 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 690 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 690 M
+( re,im;) s
+5 679 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 679 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 679 M
+( *re_full = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 679 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 679 M
+( Double_t[n];) s
+5 668 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 668 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 668 M
+( *im_full = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 668 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 668 M
+( Double_t[n];) s
+5 657 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 657 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 657 M
+( *re_full_cut = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+149 657 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+167 657 M
+( Double_t[n];) s
+5 646 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 646 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 646 M
+( *im_full_cut = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+149 646 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+167 646 M
+( Double_t[n];) s
+5 624 M
+(  hm = hraw2_comb->FFT\(hm,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+161 624 M
+("MAG") s
+/F-gs-font 10 10 SF
+0 setgray
+191 624 M
+(\);) s
+5 602 M
+(  TVirtualFFT *fft = TVirtualFFT::GetCurrentTransform\(\);) s
+5 569 M
+(  fft->GetPointComplex\(0,re,im\);) s
+5 558 M
+(  printf\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 558 M
+("1st transform: DC component: %f\\n") s
+/F-gs-font 10 10 SF
+0 setgray
+269 558 M
+(, re\);) s
+5 547 M
+(  fft->GetPointComplex\(n/2+1, re, im\);) s
+5 536 M
+(  printf\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 536 M
+("1st transform: Nyquist harmonic: %f\\n") s
+/F-gs-font 10 10 SF
+0 setgray
+293 536 M
+(, re\);) s
+5 514 M
+(  fft->GetPointsComplex\(re_full, im_full\);) s
+5 492 M
+(  TVirtualFFT *fftcut = TVirtualFFT::GetCurrentTransform\(\);) s
+5 470 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 470 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 470 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 470 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 470 M
+( i=0;i < n ;i++\){) s
+5 459 M
+(    re_full_cut[i] = 0;) s
+5 448 M
+(    im_full_cut[i] = 0;) s
+5 437 M
+(  }) s
+5 415 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 415 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 415 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 415 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 415 M
+( i=0;i < fCut ;i++\){) s
+5 404 M
+(    fftcut->GetPointComplex\(  i,re_full_cut[  i], im_full_cut[  i]\);) s
+5 393 M
+(    fftcut->GetPointComplex\(n-i,re_full_cut[n-i], im_full_cut[n-i]\);) s
+5 382 M
+(  }) s
+5 360 M
+(  hmcut = hraw2_comb->FFT\(hmcut,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+197 360 M
+("MAG") s
+/F-gs-font 10 10 SF
+0 setgray
+227 360 M
+(\);) s
+5 338 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 338 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 338 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 338 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 338 M
+( i=0;i<n;i++\){) s
+5 327 M
+(    hmcut->SetBinContent\(i+1,sqrt\(pow\(re_full_cut[i],2\)+pow\(im_full_cut[i],2\)\)\);) s
+5 316 M
+(  }) s
+5 294 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+17 294 M
+(TVirtualFFT) s
+/F-gs-font 10 10 SF
+0 setgray
+83 294 M
+(::SetTransform\(0\);) s
+5 272 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 272 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+35 272 M
+( m = n;) s
+5 261 M
+(  TVirtualFFT *fftBackCut = TVirtualFFT::FFT\(1,&m,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+305 261 M
+("C2R M K") s
+/F-gs-font 10 10 SF
+0 setgray
+359 261 M
+(\);) s
+5 250 M
+(  fftBackCut->SetPointsComplex\(re_full_cut,im_full_cut\);) s
+5 239 M
+(  fftBackCut->Transform\(\);) s
+5 217 M
+(  hbcut = TH1::TransformHisto\(fftBackCut,hbcut,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+287 217 M
+("Re") s
+/F-gs-font 10 10 SF
+0 setgray
+311 217 M
+(\);) s
+5 206 M
+(  hbcut->SetName\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 206 M
+("hbcut") s
+/F-gs-font 10 10 SF
+0 setgray
+149 206 M
+(\);) s
+5 195 M
+(  hbcut->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+113 195 M
+("Frequency Cut") s
+/F-gs-font 10 10 SF
+0 setgray
+203 195 M
+(\);) s
+5 184 M
+(  hbcut->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+119 184 M
+("# of Bin") s
+/F-gs-font 10 10 SF
+0 setgray
+179 184 M
+(\);) s
+5 162 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 162 M
+("m=") s
+/F-gs-font 10 10 SF
+0 setgray
+89 162 M
+(<< m << endl;) s
+5 151 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 151 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 151 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 151 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 151 M
+( i=0; i < m ; i++\){) s
+5 140 M
+(    hbcut2->SetBinContent\(i,hbcut->GetBinContent\(i\)/m\);) s
+5 129 M
+(  }) s
+5 107 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 107 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 96 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 96 M
+(// FFT OF SCANNING STAGE) s
+/F-gs-font 10 10 SF
+0 setgray
+5 85 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 85 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 63 M
+(  TH1 *hbcut_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 63 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 63 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 63 M
+("hbcut_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+251 63 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 63 M
+("hbcut_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+329 63 M
+(,n,RangeMin,RangeMax\);) s
+5 52 M
+(  hbcut_scan->GetYaxis\(\)->SetRangeUser\(0.48,0.53\);) s
+5 41 M
+(  hbcut_scan->GetXaxis\(\)->SetRangeUser\(-0.001,0.001\);) s
+5 30 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 30 M
+(// TH1 *hbcut_scan = 0;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 19 M
+(  hbcut_scan->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 19 M
+("Scanning after Low Path Filter") s
+/F-gs-font 10 10 SF
+0 setgray
+335 19 M
+(\);) s
+5 8 M
+(  hbcut_scan->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 8 M
+("Time[sec]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 8 M
+(\);) s
+_R
+S
+%%Page: (5) 5
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 5 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(  hbcut_scan->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 745 M
+("Rescaled Voltage [V]") s
+/F-gs-font 10 10 SF
+0 setgray
+281 745 M
+(\);) s
+5 734 M
+(  hbcut_scan->SetStats\(0\);) s
+5 712 M
+(  TH1 *hm_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+107 712 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+125 712 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+161 712 M
+("hm_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+215 712 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+221 712 M
+("hm_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+275 712 M
+(,n,0.,Fs\);) s
+5 701 M
+(  hm_scan->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+125 701 M
+("Magnitude of the 1st transform of scanning") s
+/F-gs-font 10 10 SF
+0 setgray
+389 701 M
+(\);) s
+5 690 M
+(  hm->SetLineWidth\(2\);) s
+5 679 M
+(  hm->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+101 679 M
+("Frequency [kHz]") s
+/F-gs-font 10 10 SF
+0 setgray
+203 679 M
+(\);) s
+5 668 M
+(  hm->SetYTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+101 668 M
+("Magnitude") s
+/F-gs-font 10 10 SF
+0 setgray
+167 668 M
+(\);) s
+5 646 M
+(  TH1 *hmcut_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+125 646 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+143 646 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+179 646 M
+("hmcut_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+251 646 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+257 646 M
+("hmcut_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+329 646 M
+(,n,0.,Fs\);) s
+5 635 M
+(  hmcut->SetLineColor\(2\);) s
+5 613 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 613 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 613 M
+( re_scan,im_scan;) s
+5 602 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 602 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 602 M
+( *re_full_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+155 602 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+173 602 M
+( Double_t[n];) s
+5 591 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 591 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 591 M
+( *im_full_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+155 591 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+173 591 M
+( Double_t[n];) s
+5 580 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 580 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 580 M
+( *re_full_cut_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+179 580 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+197 580 M
+( Double_t[n];) s
+5 569 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 569 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 569 M
+( *im_full_cut_scan = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+179 569 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+197 569 M
+( Double_t[n];) s
+5 536 M
+(  hm_scan = hraw_scan->FFT\(hm_scan,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+215 536 M
+("MAG") s
+/F-gs-font 10 10 SF
+0 setgray
+245 536 M
+(\);) s
+5 514 M
+(  TVirtualFFT *fft_scan = TVirtualFFT::GetCurrentTransform\(\);) s
+5 481 M
+(  fft_scan->GetPointComplex\(0,re_scan,im_scan\);) s
+5 470 M
+(  printf\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 470 M
+("1st transform of scan: DC component: %f\\n") s
+/F-gs-font 10 10 SF
+0 setgray
+317 470 M
+(, re_scan\);) s
+5 459 M
+(  fft_scan->GetPointComplex\(n/2+1, re_scan, im_scan\);) s
+5 448 M
+(  printf\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+59 448 M
+("1st transform of scan: Nyquist harmonic: %f\\n") s
+/F-gs-font 10 10 SF
+0 setgray
+341 448 M
+(, re_scan\);) s
+5 426 M
+(  fft_scan->GetPointsComplex\(re_full, im_full\);) s
+5 415 M
+(  fft_scan->GetPointsComplex\(re_full_scan, im_full_scan\);) s
+5 393 M
+(  TVirtualFFT *fftcut_scan = TVirtualFFT::GetCurrentTransform\(\);) s
+5 371 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 371 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 371 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 371 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 371 M
+( i=0;i < n ;i++\){) s
+5 360 M
+(    re_full_cut_scan[i] = 0;) s
+5 349 M
+(    im_full_cut_scan[i] = 0;) s
+5 338 M
+(  }) s
+5 316 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 316 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 316 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 316 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 316 M
+( i=0;i < fCut_scan ;i++\){) s
+5 305 M
+(    fftcut_scan->GetPointComplex\(  i,re_full_cut_scan[  i], im_full_cut_scan[  i]\);) s
+5 294 M
+(    fftcut_scan->GetPointComplex\(n-i,re_full_cut_scan[n-i], im_full_cut_scan[n-i]\);) s
+5 283 M
+(  }) s
+5 261 M
+(  hmcut_scan = hraw_scan->FFT\(hmcut_scan,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+251 261 M
+("MAG") s
+/F-gs-font 10 10 SF
+0 setgray
+281 261 M
+(\);) s
+5 239 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 239 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 239 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 239 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 239 M
+( i=0;i<n;i++\){) s
+5 228 M
+(    hmcut_scan->SetBinContent\(i+1,sqrt\(pow\(re_full_cut_scan[i],2\)+pow\(im_full_cut_scan[i]) s
+5 217 M
+(,2\)\)\);) s
+5 206 M
+(  }) s
+5 184 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.372549 0.619608 0.627451 setrgbcolor
+17 184 M
+(TVirtualFFT) s
+/F-gs-font 10 10 SF
+0 setgray
+83 184 M
+(::SetTransform\(0\);) s
+5 162 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 162 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+35 162 M
+( m_scan = n;) s
+5 151 M
+(  TVirtualFFT *fftBackCut_scan = TVirtualFFT::FFT\(1,&m,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+335 151 M
+("C2R M K") s
+/F-gs-font 10 10 SF
+0 setgray
+389 151 M
+(\);) s
+5 140 M
+(  fftBackCut_scan->SetPointsComplex\(re_full_cut_scan,im_full_cut_scan\);) s
+5 129 M
+(  fftBackCut_scan->Transform\(\);) s
+5 107 M
+(  hbcut_scan = TH1::TransformHisto\(fftBackCut_scan,hbcut_scan,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+377 107 M
+("Re") s
+/F-gs-font 10 10 SF
+0 setgray
+401 107 M
+(\);) s
+5 96 M
+(  hbcut_scan->SetName\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+137 96 M
+("hbcut_scan") s
+/F-gs-font 10 10 SF
+0 setgray
+209 96 M
+(\);) s
+5 85 M
+(  hbcut_scan->SetTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+143 85 M
+("Frequency Cut") s
+/F-gs-font 10 10 SF
+0 setgray
+233 85 M
+(\);) s
+5 74 M
+(  hbcut_scan->SetXTitle\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+149 74 M
+("Time[sec]") s
+/F-gs-font 10 10 SF
+0 setgray
+215 74 M
+(\);) s
+5 52 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 52 M
+("m_scan=") s
+/F-gs-font 10 10 SF
+0 setgray
+119 52 M
+(<< m_scan << endl;) s
+5 41 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 41 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 41 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 41 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 41 M
+( i=0; i < m_scan ; i++\){) s
+5 30 M
+(    hbcut_scan->SetBinContent\(i,hbcut_scan->GetBinContent\(i\)/m\);) s
+5 19 M
+(  }) s
+_R
+S
+%%Page: (6) 6
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 6 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (6) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 734 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 734 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 723 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 723 M
+(// Average of Scanning Stage) s
+/F-gs-font 10 10 SF
+0 setgray
+5 712 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 712 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 690 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 690 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+35 690 M
+( div = 50;) s
+5 679 M
+(  TH1D *hs = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+83 679 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+101 679 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+137 679 M
+("hs") s
+/F-gs-font 10 10 SF
+0 setgray
+161 679 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+167 679 M
+("Average of Scanning stage") s
+/F-gs-font 10 10 SF
+0 setgray
+329 679 M
+(,n/div,RangeMin,RangeMax\);) s
+5 668 M
+(  TH1D *hs_full = ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+113 668 M
+(new) s
+/F-gs-font 10 10 SF
+0 setgray
+131 668 M
+( TH1D\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+167 668 M
+("hs") s
+/F-gs-font 10 10 SF
+0 setgray
+191 668 M
+(,) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+197 668 M
+("Full bin _ Average of Scanning stage") s
+/F-gs-font 10 10 SF
+0 setgray
+425 668 M
+(,n,RangeMin,RangeMa) s
+5 657 M
+(x\);) s
+5 646 M
+(  hs->SetStats\(0\);) s
+5 635 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 635 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 635 M
+( sum = 0;) s
+5 624 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 624 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 624 M
+( ave = 0;) s
+5 613 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 613 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 613 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 613 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 613 M
+( i=0; i < n/div ; i++\){) s
+5 602 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 602 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+59 602 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+65 602 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+83 602 M
+( isum=0; isum<div ; isum++\){) s
+5 591 M
+(          sum += hraw_scan->GetBinContent\(i*div+isum\);) s
+5 580 M
+(          ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+65 580 M
+(// cout << isum << " " << hraw_scan->GetBinContent\(i*div+isum\) << " " << sum <<) s
+5 569 M
+( endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 558 M
+(      }) s
+5 547 M
+(      ave = sum/div;) s
+5 536 M
+(      hs->SetBinContent\(i,ave\);) s
+5 525 M
+(      ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+41 525 M
+(// cout << i*div << " " << sum << " " << ave << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 514 M
+(      sum = 0;) s
+5 503 M
+(      ave = 0;) s
+5 492 M
+(  }) s
+5 470 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 470 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 470 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 470 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 470 M
+( i = 0; i < n/div ; i++ \) {) s
+5 459 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 459 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+59 459 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+65 459 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+83 459 M
+( j = 0; j<div ; j++\){) s
+5 448 M
+(          hs_full->SetBinContent\(i*div + j,\(hs->GetBinContent\(i+1\)-hs->GetBinContent\(i\)\)/) s
+5 437 M
+(div*j + hs->GetBinContent\(i\)\);) s
+5 426 M
+(          ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+65 426 M
+(// cout << i*div + j << " " << hs_full->GetBinContent\(i*div+j\) << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 415 M
+(      }) s
+5 404 M
+(  }) s
+5 382 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 382 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 371 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 371 M
+(// peak finding) s
+/F-gs-font 10 10 SF
+0 setgray
+5 360 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 360 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 338 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 338 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 338 M
+( diff = 0.;) s
+5 327 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 327 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+35 327 M
+(    sw   = 0;) s
+5 305 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 305 M
+(const) s
+/F-gs-font 10 10 SF
+0 setgray
+47 305 M
+( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 305 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 305 M
+( npeak = 100;) s
+5 294 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 294 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 294 M
+( t_peak[ npeak ];) s
+5 283 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 283 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 283 M
+( v_peak[ npeak ];) s
+5 272 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 272 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 272 M
+( v_peak_scan[ npeak ];) s
+5 261 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 261 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 261 M
+( v_peak_ave[ npeak ];) s
+5 250 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 250 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 250 M
+( ono_scan = 2000.0 ; ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+179 250 M
+(/* um/voltage */) s
+/F-gs-font 10 10 SF
+0 setgray
+5 239 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 239 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 239 M
+( \( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 239 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 239 M
+( i = 0 ; i < npeak ; i++ \) {) s
+5 228 M
+(    t_peak[ i ] = -1.;) s
+5 217 M
+(    v_peak[ i ] = -1.;) s
+5 206 M
+(    v_peak_scan[ i ] = -1.;) s
+5 195 M
+(    v_peak_ave[ i ] = -1.;) s
+5 184 M
+(  }) s
+5 173 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 173 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+35 173 M
+(    ipeak = 0;) s
+5 162 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+17 162 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+53 162 M
+( diff_sw = 300.0;) s
+5 151 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 151 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 151 M
+(\() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+41 151 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+59 151 M
+( i=0;i<n;i++\){) s
+5 140 M
+(    diff= \(hbcut->GetBinContent\(i+2\)\) - \(\(hbcut->GetBinContent\(i+1\)\)\);) s
+5 129 M
+(    h_diff->SetBinContent\(i+1,diff\);) s
+5 107 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 107 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+41 107 M
+(\( sw == 1 || diff > diff_sw \) {) s
+5 96 M
+(      sw = 1;) s
+5 85 M
+(    }) s
+5 63 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+29 63 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+41 63 M
+( \( sw == 1 && diff < 0. \) {) s
+5 52 M
+(      sw = 0;) s
+5 30 M
+(      ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+41 30 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+53 30 M
+( \( ipeak < npeak \) {) s
+5 19 M
+(        t_peak[ ipeak ] = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+167 19 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+203 19 M
+(\) hbcut2->GetXaxis\(\)->GetBinCenter\(i+1\);) s
+5 8 M
+(        v_peak[ ipeak ] = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+167 8 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+203 8 M
+(\) hraw_scan->GetBinContent\(i+1\);) s
+_R
+S
+%%Page: (7) 7
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 7 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (7) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(        v_peak_scan[ ipeak ] = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+197 745 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+233 745 M
+(\) hbcut_scan->GetBinContent\(i+1\);) s
+5 734 M
+(        v_peak_ave[ ipeak ] = \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+191 734 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+227 734 M
+(\) hs_full->GetBinContent\(i+1\);) s
+5 723 M
+(        ipeak ++;) s
+5 712 M
+(      }) s
+5 701 M
+(    }) s
+5 679 M
+(    h_diffsw->SetBinContent\(i+1, \() s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+209 679 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+245 679 M
+(\) 100 * sw\);) s
+5 657 M
+(  }) s
+5 635 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 635 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+29 635 M
+( \( ipeak < 0 \) {) s
+5 624 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 624 M
+("error bin_peak < 0 ") s
+/F-gs-font 10 10 SF
+0 setgray
+203 624 M
+( << endl;) s
+5 613 M
+(  }) s
+5 591 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 591 M
+("ipeak, time[sec], voltage[V], ono[um],LP voltage[V], ono_scan[um], ave voltage) s
+5 580 M
+([V], ave ono_scan[um]  ") s
+/F-gs-font 10 10 SF
+0 setgray
+149 580 M
+( << endl;) s
+5 569 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 569 M
+(for) s
+/F-gs-font 10 10 SF
+0 setgray
+35 569 M
+( \( ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+53 569 M
+(int) s
+/F-gs-font 10 10 SF
+0 setgray
+71 569 M
+( i = 0 ; i < ipeak ; i++ \) {) s
+5 558 M
+(    cout << i) s
+5 547 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 547 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 547 M
+( << t_peak[ i ]) s
+5 536 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 536 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 536 M
+( << v_peak[ i ]) s
+5 525 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 525 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 525 M
+( << v_peak[ i ] * ono_scan) s
+5 514 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 514 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 514 M
+( << v_peak_scan[ i ]) s
+5 503 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 503 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 503 M
+( << v_peak_scan[ i ] * ono_scan) s
+5 492 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 492 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 492 M
+( << v_peak_ave[ i ]) s
+5 481 M
+(         << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 481 M
+(" ") s
+/F-gs-font 10 10 SF
+0 setgray
+95 481 M
+( << v_peak_ave[ i ] * ono_scan) s
+5 470 M
+(         << endl;) s
+5 459 M
+(  }) s
+5 437 M
+(  ) s
+/Courier-Bold 10 10 SUF
+0.627451 0.12549 0.941176 setrgbcolor
+17 437 M
+(if) s
+/F-gs-font 10 10 SF
+0 setgray
+29 437 M
+( \( ipeak == 2 \) {) s
+5 426 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 426 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 426 M
+( tdiff = t_peak[ 1 ] - t_peak[ 0 ];) s
+5 415 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 415 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 415 M
+( vdiff = v_peak[ 1 ] - v_peak[ 0 ];) s
+5 404 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 404 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 404 M
+( vdiff_scan = v_peak_scan[ 1 ] - v_peak_scan[ 0 ];) s
+5 393 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 393 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 393 M
+( vdiff_ave = v_peak_ave[ 1 ] - v_peak_ave[ 0 ];) s
+5 382 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 382 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 382 M
+( disp = v_peak[ 1 ] * ono_scan - v_peak[ 0 ] * ono_scan;) s
+5 371 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 371 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 371 M
+( disp_scan = v_peak_scan[ 1 ] * ono_scan - v_peak_scan[ 0 ] * ono_scan;) s
+5 360 M
+(    ) s
+/Courier-Bold 10 10 SUF
+0.133333 0.545098 0.133333 setrgbcolor
+29 360 M
+(double) s
+/F-gs-font 10 10 SF
+0 setgray
+65 360 M
+( disp_ave = v_peak_ave[ 1 ] * ono_scan - v_peak_ave[ 0 ] * ono_scan;) s
+5 349 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 349 M
+("time difference [s] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+221 349 M
+( << tdiff << endl;) s
+5 338 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 338 M
+("voltage difference [V] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+239 338 M
+( << vdiff << endl;) s
+5 327 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 327 M
+("voltage difference after low path of scanning [V] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+401 327 M
+( << vdiff_scan << endl;) s
+5 316 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 316 M
+("Ave : voltage difference [V] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+275 316 M
+( << vdiff_ave << endl;) s
+5 305 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 305 M
+("displacement [um] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+209 305 M
+( << disp << endl;) s
+5 294 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 294 M
+("displacement after low path of scanning [um] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+371 294 M
+( << disp_scan << endl;) s
+5 283 M
+(    cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+77 283 M
+("Ave : displacement [um] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+245 283 M
+( << disp_ave << endl;) s
+5 272 M
+(  }) s
+5 250 M
+(  hnoise_tgt->Fit\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+113 250 M
+("gaus") s
+/F-gs-font 10 10 SF
+0 setgray
+149 250 M
+(\);) s
+5 239 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 239 M
+(//  hnoise_scan->Fit\("gaus"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 217 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 217 M
+("Mean of tgt gaussian = ") s
+/F-gs-font 10 10 SF
+0 setgray
+215 217 M
+( << hnoise_tgt->GetFunction\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+383 217 M
+("gaus") s
+/F-gs-font 10 10 SF
+0 setgray
+419 217 M
+(\)->GetParameter\(1\) <) s
+5 206 M
+(< endl;) s
+5 195 M
+(  cout << ) s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+65 195 M
+("Position of tgt [um] = ") s
+/F-gs-font 10 10 SF
+0 setgray
+215 195 M
+( << hnoise_tgt->GetFunction\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+383 195 M
+("gaus") s
+/F-gs-font 10 10 SF
+0 setgray
+419 195 M
+(\)->GetParameter\(1\) *) s
+5 184 M
+( 5.00 << endl;) s
+5 129 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 129 M
+(// std::vector<double> sum;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 118 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 118 M
+(// std::vector<double> ave;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 107 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 107 M
+(// for\(int i=0; i<n/div ; i++\){) s
+/F-gs-font 10 10 SF
+0 setgray
+5 96 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 96 M
+(//     for\(int j=0; j<div; j++\){) s
+/F-gs-font 10 10 SF
+0 setgray
+5 85 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 85 M
+(//         sum.push_back\(v[ iscan ][i*div + j]\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 74 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 74 M
+(//     }) s
+/F-gs-font 10 10 SF
+0 setgray
+5 63 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 63 M
+(//     ave.push_back\(sum[i]/div\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 52 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 52 M
+(//     cout << i*10 << " " << sum[i] << " " << ave[i] << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 30 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 30 M
+(// }) s
+/F-gs-font 10 10 SF
+0 setgray
+5 8 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 8 M
+(////////////////////////////////////) s
+_R
+S
+%%Page: (8) 8
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 8 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+/Courier-Oblique 10 10 SUF
+% User defined strings:
+/pagenumstr (8) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+0.698039 0.133333 0.133333 setrgbcolor
+/F-gs-font 10 10 SF
+0 setgray
+5 745 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 745 M
+(// Draw results) s
+/F-gs-font 10 10 SF
+0 setgray
+5 734 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 734 M
+(////////////////////////////////////) s
+/F-gs-font 10 10 SF
+0 setgray
+5 701 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 701 M
+(// for\(int binn = 0; binn < t[icomb].size\(\) ; binn++\){) s
+/F-gs-font 10 10 SF
+0 setgray
+5 690 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 690 M
+(//     cout << binn << " " << hraw_comb->GetBinContent\(binn\) << " " << hraw_scan->GetBi) s
+5 679 M
+(nContent\(binn\) << " " << hraw_tgt->GetBinContent\(binn\) << endl;) s
+/F-gs-font 10 10 SF
+0 setgray
+5 668 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 668 M
+(// }) s
+/F-gs-font 10 10 SF
+0 setgray
+5 635 M
+(  gStyle->SetOptFit\(\);) s
+5 624 M
+(  c1->Draw\(\);) s
+5 613 M
+(  c1->Divide\(2,2\);) s
+5 602 M
+(  c1->cd\(1\);) s
+5 591 M
+(  hraw_comb->Draw\(\);) s
+5 580 M
+(  c1->cd\(2\);) s
+5 569 M
+(  hraw2_comb->Draw\(\);) s
+5 558 M
+(  c1->cd\(3\);) s
+5 547 M
+(  hraw_scan->Draw\(\);) s
+5 536 M
+(  c1->cd\(4\);) s
+5 525 M
+(  hraw_tgt->Draw\(\);) s
+5 503 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 503 M
+(// c1->Update\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 492 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 492 M
+(// c1->Modified\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 470 M
+(  c2->cd\(\);) s
+5 459 M
+(  hm->Draw\(\);) s
+5 448 M
+(  hmcut->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+89 448 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+125 448 M
+(\);) s
+5 426 M
+(  c3->cd\(\);) s
+5 415 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 415 M
+(// hbcut->Draw\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 404 M
+(  hbcut2->Draw\(\);) s
+5 393 M
+(  h_diffsw->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 393 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+143 393 M
+(\);) s
+5 382 M
+(  hbcut->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+89 382 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+125 382 M
+(\);) s
+5 349 M
+(  c4->Divide\(1,2\);) s
+5 338 M
+(  c4->cd\(1\);) s
+5 327 M
+(  hnoise_tgt->Draw\(\);) s
+5 316 M
+(  c4->cd\(2\);) s
+5 305 M
+(  hnoise_scan->Draw\(\);) s
+5 283 M
+(  c5->cd\(\);) s
+5 272 M
+(  h_diff->Draw\(\);) s
+5 261 M
+(  h_diffsw->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 261 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+143 261 M
+(\);) s
+5 228 M
+(  c6->cd\(\);) s
+5 217 M
+(  hbcut->Draw\(\);) s
+5 206 M
+(  h_diffsw->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 206 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+143 206 M
+(\);) s
+5 184 M
+(  c7->cd\(\);) s
+5 173 M
+(  hbcut2->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+95 173 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+131 173 M
+(\);) s
+5 162 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 162 M
+(// h_diffsw->Draw\("SAME"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 151 M
+(  hraw_scan->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+113 151 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+149 151 M
+(\);) s
+5 129 M
+(  c8->cd\(\);) s
+5 118 M
+(  hbcut_scan->Draw\(\);) s
+5 96 M
+(  c9->cd\(\);) s
+5 85 M
+(  hm_scan->Draw\(\);) s
+5 74 M
+(  hmcut_scan->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+119 74 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+155 74 M
+(\);) s
+5 52 M
+(  c10->cd\(\);) s
+5 41 M
+(  hbcut2->Draw\(\);) s
+5 30 M
+(  h_diffsw->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+107 30 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+143 30 M
+(\);) s
+5 19 M
+(  hbcut_scan->Draw\() s
+/Courier-Bold 10 10 SUF
+0.737255 0.560784 0.560784 setrgbcolor
+119 19 M
+("SAME") s
+/F-gs-font 10 10 SF
+0 setgray
+155 19 M
+(\);) s
+_R
+S
+%%Page: (9) 9
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 9 def
+/fname (Alignment.C) def
+/fdir (.) def
+/ftail (Alignment.C) def
+% User defined strings:
+/pagenumstr (9) def
+/moddatestr (09/01/17) def
+/modtimestr (14:15:45) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+5 745 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 745 M
+(// canvas->DrawFrame\(xmin,ymin,xmax,ymax\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 734 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 734 M
+(// hist->Draw\("same"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 723 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 723 M
+(// canvas->RedrawAxis\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 701 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 701 M
+(/* Wrong function */) s
+/F-gs-font 10 10 SF
+0 setgray
+5 690 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 690 M
+(// TF1 *hb_scan_fit = hbcut_scan->GetFunction\("pol1"\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 679 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 679 M
+(// TH1D *hres = new TH1D\("hres","Fit Residuals", n, RangeMin, RangeMax\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 657 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 657 M
+(// for\(int ibin = 0; ibin < n ; ibin++\){) s
+/F-gs-font 10 10 SF
+0 setgray
+5 646 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 646 M
+(//     double res = \(hbcut_scan->GetBinContent\(ibin\) - hb_scan_fit->Eval\(hbcut_scan->Ge) s
+5 635 M
+(tBinCenter\(ibin\)\)\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 624 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 624 M
+(//     hres->SetBinContent\(ibin, res\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 613 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 613 M
+(// }) s
+/F-gs-font 10 10 SF
+0 setgray
+5 602 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 602 M
+(// c11->cd\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 591 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 591 M
+(// hres->Draw\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 569 M
+(  c11->cd\(\);) s
+5 558 M
+(  hs->Draw\(\);) s
+5 536 M
+(  c12->cd\(\);) s
+5 525 M
+(  hs_full->Draw\(\);) s
+5 503 M
+(  tfile->Write\(\);) s
+5 492 M
+(  ) s
+/Courier-Oblique 10 10 SUF
+0.698039 0.133333 0.133333 setrgbcolor
+17 492 M
+(// tfile->Close\(\);) s
+/F-gs-font 10 10 SF
+0 setgray
+5 448 M
+(}) s
+_R
+S
+%%Trailer
+%%Pages: 9
+%%DocumentNeededResources: font Times-Roman Courier-Oblique Courier-Bold 
+%%+ font Courier Times-Bold 
+%%EOF

@@ -1,0 +1,4691 @@
+%PDF-1.3
+%‚„œ”
+2 0 obj
+<<
+/Length 7088
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(1)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("fstream")Tj
+/TT8 1 Tf
+0 g
+-5.4 -1.1 TD
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("TH1D.h")Tj
+/TT8 1 Tf
+0 g
+-5.4 -1.1 TD
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("TVirtualfft.h")Tj
+/TT8 1 Tf
+0 g
+-5.4 -1.1 TD
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("TF1.h")Tj
+/TT8 1 Tf
+0 g
+-5.4 -1.1 TD
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("TCanvas.h")Tj
+/TT8 1 Tf
+0 g
+-5.4 -1.1 TD
+(#)Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+0.6 0 TD
+(include)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("TMath.h")Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+-5.4 -2.2 TD
+(// void Alignment\( string filefolder = "170211/", string filebase = "print_011_", int fCu)Tj
+0 -1.1 TD
+(t = 100, int fCut_scan = 100\){)Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+T*
+(void)Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+( )Tj
+/TT10 1 Tf
+0 0 1 rg
+0.6 0 TD
+(Alignment)Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(\( string filebase = )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+12 0 TD
+("/Users/YASUDA/Data/Alignment/170830/print_023")Tj
+/TT8 1 Tf
+0 g
+28.2 0 TD
+(, )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( fC)Tj
+-51.6 -1.1 TD
+(ut = 100, )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( fCut_scan = 100\){)Tj
+-7.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( RangeMin = -0.04000;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( RangeMax =  0.04000;)Tj
+-4.8 -3.3 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// reading csv file)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// const int Nwave = 3;)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Nwave = 2; )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+7.2 0 TD
+(// for calibration data not to include CH3 \( ONOSOKKI monitor for )Tj
+-13.8 -1.1 TD
+(measurement path \))Tj
+/TT8 1 Tf
+0 g
+T*
+(  stringstream filename;)Tj
+0 -3.3 TD
+(  )Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+1.2 0 TD
+(std)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(::vector<)Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+5.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(> t[ Nwave];)Tj
+-12 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+1.2 0 TD
+(std)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(::vector<)Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+5.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(> v[ Nwave];)Tj
+-12 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( \( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.8 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( iwave = 0 ; iwave < Nwave ; iwave++ \){)Tj
+-6.6 -1.1 TD
+(    filename.str\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("")Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\);)Tj
+-11.4 -1.1 TD
+(    )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+2.4 0 TD
+(// filename << "/Users/YASUDA/Data/Alignment/" << filefolder << filebase.c_str\(\) << i)Tj
+-2.4 -1.1 TD
+(wave + 1 << ".csv";)Tj
+/TT8 1 Tf
+0 g
+T*
+(    filename << filebase.c_str\(\) << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+21.6 0 TD
+("_")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << iwave + 1 << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+(".dat")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(;)Tj
+-37.2 -2.2 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("opening ... ")Tj
+/TT8 1 Tf
+0 g
+8.4 0 TD
+( << filename.str\(\).c_str\(\);)Tj
+-15.6 -1.1 TD
+(    ifstream ifs\(filename.str\(\).c_str\(\) , std::ios::in \);)Tj
+T*
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\(!ifs\){)Tj
+-3.6 -1.1 TD
+(      cout<<)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ... error, file not found")Tj
+/TT8 1 Tf
+0 g
+16.8 0 TD
+( << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+2.4 0 TD
+(":")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << filename.str\(\).c_str\(\) <<  endl;)Tj
+-28.2 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(return)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(;)Tj
+-7.2 -1.1 TD
+(    })Tj
+0 -2.2 TD
+(    string str;)Tj
+0 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( lineno = 0;)Tj
+-4.2 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( iword = 0;)Tj
+-4.2 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( N = 10;)Tj
+-7.8 -1.1 TD
+(    string atoken[ N ];)Tj
+0 -2.2 TD
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(while)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\(getline\(ifs,str\)\){)Tj
+-5.4 -1.1 TD
+(      string token;)Tj
+T*
+(      istringstream stream\(str\);)Tj
+0 -2.2 TD
+(      iword = 0;)Tj
+0 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(while)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\(getline\(stream,token,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.2 0 TD
+(í í)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\)\){)Tj
+-21.6 -1.1 TD
+(          )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+6 0 TD
+(// cout << lineno << " " << iword << " " << token << endl;)Tj
+/TT8 1 Tf
+0 g
+-6 -1.1 TD
+(          atoken[ iword ] = token;)Tj
+T*
+(          iword++;)Tj
+T*
+(      })Tj
+T*
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(//    cout << endl;)Tj
+/TT8 1 Tf
+0 g
+-3.6 -2.2 TD
+(      )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+3.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( time;)Tj
+-7.2 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+3.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( volt;)Tj
+-7.2 -2.2 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(switch)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( \(lineno\) {)Tj
+-7.2 -1.1 TD
+(          )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+6 0 TD
+(/* SAVE BY ASCII*/)Tj
+/TT8 1 Tf
+0 g
+-6 -1.1 TD
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(// case 0 :)Tj
+/TT8 1 Tf
+0 g
+-3.6 -1.1 TD
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(//   break;)Tj
+/TT8 1 Tf
+0 g
+-3.6 -1.1 TD
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(// case 1 :)Tj
+/TT8 1 Tf
+0 g
+-3.6 -1.1 TD
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(//   break;)Tj
+/TT8 1 Tf
+0 g
+-3.6 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(default)Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+( :)Tj
+ET
+endstream
+endobj
+3 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+13 0 obj
+<<
+/Length 8889
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(2)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(        time = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+9.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) atof\( atoken[ 0 ].c_str\(\) \) ;)Tj
+-13.2 -1.1 TD
+(        volt = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+9.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) atof\( atoken[ 1 ].c_str\(\) \) ;)Tj
+-13.2 -2.2 TD
+(        )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+4.8 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\(RangeMin < time && time < RangeMax\){)Tj
+-6 -1.1 TD
+(          t[ iwave ].push_back\( time \);)Tj
+T*
+(          v[ iwave ].push_back\( volt \);)Tj
+T*
+(        })Tj
+T*
+(        )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+4.8 0 TD
+(break)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(;)Tj
+-7.8 -1.1 TD
+(      })Tj
+0 -2.2 TD
+(      lineno++;)Tj
+0 -1.1 TD
+(    })Tj
+0 -2.2 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(", read ")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+( << lineno << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+8.4 0 TD
+(" lines.")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+( << endl;)Tj
+-26.4 -2.2 TD
+(    ifs.close\(\);)Tj
+0 -1.1 TD
+(  } )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+2.4 0 TD
+(// iwave)Tj
+/TT8 1 Tf
+0 g
+-2.4 -2.2 TD
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("number of point is ")Tj
+/TT8 1 Tf
+0 g
+12.6 0 TD
+( << t[ 0 ].size\(\) << endl;)Tj
+-18.6 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// define root file/canvas/histogram)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  stringstream rootfilename;)Tj
+0 -1.1 TD
+(  rootfilename.str\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+11.4 0 TD
+("")Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\);)Tj
+-12.6 -1.1 TD
+(  rootfilename << filebase.c_str\(\) << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+22.8 0 TD
+(".root")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(;)Tj
+-27 -2.2 TD
+(  TFile * tfile = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.8 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TFile\( rootfilename.str\(\).c_str\(\) ,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+21.6 0 TD
+("recreate")Tj
+/TT8 1 Tf
+0 g
+6 0 TD
+(\);)Tj
+-40.2 -2.2 TD
+(  TCanvas *c1 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c1")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c1")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c2 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c2")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c2")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c3 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c3")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c3")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c4 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c4")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c4")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c5 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c5")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c5")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c6 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c6")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c6")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c7 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c7")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c7")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c8 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c8")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c8")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c9 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c9")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c9")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  TCanvas *c10 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c10")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c10")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-24 -1.1 TD
+(  TCanvas *c11 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c11")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c11")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-24 -1.1 TD
+(  TCanvas *c12 = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TCanvas\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("c12")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("c12")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-24 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( n = t[ 0 ].size\(\);)Tj
+-6.6 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( Fs = 100.000;)Tj
+-4.8 -2.2 TD
+(  TH1D *hraw_comb = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hraw_comb")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+( ,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+1.2 0 TD
+("Raw Waveform Comb")Tj
+/TT8 1 Tf
+0 g
+11.4 0 TD
+(,n, RangeMin,RangeMax\);)Tj
+-36.6 -1.1 TD
+(  hraw_comb->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Second [s]")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(\);)Tj
+-21 -1.1 TD
+(  hraw_comb->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(\);)Tj
+-21.6 -1.1 TD
+(  hraw_comb->SetStats\(0\);)Tj
+0 -2.2 TD
+(  TH1D *hraw2_comb= )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hraw2_comb")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("RawSquared Comb")Tj
+/TT8 1 Tf
+0 g
+10.2 0 TD
+(,n,RangeMin,RangeMax\);)Tj
+-35.4 -1.1 TD
+(  hraw2_comb->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Second[s]")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+-21 -1.1 TD
+(  hraw2_comb->SetLineColor\(2\);)Tj
+T*
+(  hraw2_comb->SetStats\(0\);)Tj
+0 -2.2 TD
+(  TH1D *hraw_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hraw_scan")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+( ,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+1.2 0 TD
+("Raw Waveform Scan")Tj
+/TT8 1 Tf
+0 g
+11.4 0 TD
+(,n, RangeMin,RangeMax\);)Tj
+-36.6 -1.1 TD
+(  hraw_scan->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Second [s]")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(\);)Tj
+-21 -1.1 TD
+(  hraw_scan->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(\);)Tj
+-21.6 -1.1 TD
+(  hraw_scan->SetMarkerStyle\(20\);)Tj
+T*
+(  hraw_scan->SetMarkerSize\(0.1\);)Tj
+T*
+(  hraw_scan->SetStats\(0\);)Tj
+0 -2.2 TD
+(  TH1D *hraw_tgt  = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hraw_tgt")Tj
+/TT8 1 Tf
+0 g
+6 0 TD
+(  ,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+1.8 0 TD
+("Raw Waveform Target")Tj
+/TT8 1 Tf
+0 g
+12.6 0 TD
+(,n, RangeMin,RangeMax\);)Tj
+-37.8 -1.1 TD
+(  hraw_tgt->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.2 0 TD
+("Second [s]")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(\);)Tj
+-20.4 -1.1 TD
+(  hraw_tgt->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.2 0 TD
+("Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(\);)Tj
+-21 -2.2 TD
+(  TH1 *hm    = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hm")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hm")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,n,0.,Fs\);)Tj
+ET
+endstream
+endobj
+14 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+16 0 obj
+<<
+/Length 6849
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(3)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//  hm->SetName\("MAGnoCut"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  hm->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9 0 TD
+("Magnitude of the 1st transform")Tj
+/TT8 1 Tf
+0 g
+19.2 0 TD
+(\);)Tj
+-28.2 -1.1 TD
+(  hm->SetLineWidth\(2\);)Tj
+T*
+(  hm->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9.6 0 TD
+("Frequency [kHz]")Tj
+/TT8 1 Tf
+0 g
+10.2 0 TD
+(\);)Tj
+-19.8 -1.1 TD
+(  hm->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9.6 0 TD
+("Magnitude")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+-16.2 -2.2 TD
+(  TH1 *hmcut = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hmcut")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hmcut")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(,n,0.,Fs\);)Tj
+-23.4 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//  hmcut->SetName\("MAGCut"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  hmcut->SetLineColor\(2\);)Tj
+0 -3.3 TD
+(  TH1 *hbcut = 0;)Tj
+0 -2.2 TD
+(  TH1 *hbcut2= )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hbcut2")Tj
+/TT8 1 Tf
+0 g
+4.8 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hbcut2")Tj
+/TT8 1 Tf
+0 g
+4.8 0 TD
+(,n,RangeMin,RangeMax\);)Tj
+-24.6 -1.1 TD
+(  hbcut2->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+11.4 0 TD
+("Fringe after Low Path Filter")Tj
+/TT8 1 Tf
+0 g
+18 0 TD
+(\);)Tj
+-29.4 -1.1 TD
+(  hbcut2->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+12 0 TD
+("Time[sec]")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+-18.6 -1.1 TD
+(  hbcut2->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+12 0 TD
+("Rescaled Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+13.2 0 TD
+(\);)Tj
+-25.2 -1.1 TD
+(  hbcut2->GetYaxis\(\)->SetRangeUser\(0.,8.\);)Tj
+T*
+(  hbcut2->SetStats\(0\);)Tj
+T*
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// hist->GetXaxis\(\)->SetRangeUser\(first,last\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -4.4 TD
+(  TH1D *h_diff   = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+11.4 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("h_diff")Tj
+/TT8 1 Tf
+0 g
+4.8 0 TD
+(,  )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+1.8 0 TD
+("Diff")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(,n,RangeMin,RangeMax\);)Tj
+-27 -1.1 TD
+(  TH1D *h_diffsw = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+11.4 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("h_diffsw")Tj
+/TT8 1 Tf
+0 g
+6 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("Diffsw")Tj
+/TT8 1 Tf
+0 g
+4.8 0 TD
+(,n,RangeMin,RangeMax\);)Tj
+-28.2 -1.1 TD
+(  h_diffsw->SetLineColor\(2\);)Tj
+0 -2.2 TD
+(  TH1D *hnoise_tgt  = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+13.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hnoise_tgt")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("noise target")Tj
+/TT8 1 Tf
+0 g
+8.4 0 TD
+(,150,-1.,11.\);)Tj
+-34.8 -1.1 TD
+(  hnoise_tgt->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Target Stage")Tj
+/TT8 1 Tf
+0 g
+8.4 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  hnoise_tgt->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(\);)Tj
+-22.2 -1.1 TD
+(  hnoise_tgt->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Event")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(\);)Tj
+-18.6 -2.2 TD
+(  TH1D *hnoise_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+13.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hnoise_scan")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("noise scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,9,-0.09,0.09\);)Tj
+-34.2 -1.1 TD
+(  hnoise_scan->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Scanning Stage")Tj
+/TT8 1 Tf
+0 g
+9.6 0 TD
+(\);)Tj
+-24 -1.1 TD
+(  hnoise_scan->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+15 0 TD
+("Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+7.8 0 TD
+(\);)Tj
+-22.8 -1.1 TD
+(  hnoise_scan->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+15 0 TD
+("Event")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(\);)Tj
+-19.2 -3.3 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// filling histograms)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( icomb = 0;)Tj
+-6.6 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( iscan = 1;)Tj
+-6.6 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( itgt  = 2;)Tj
+-6.6 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( \( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.8 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i = 0 ; i < t[ icomb].size\(\) ; i++ \) {)Tj
+-6.6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( binn = hraw_comb->FindBin\( t[ icomb ][ i ] \);)Tj
+-4.2 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\(fabs\(hraw_comb->GetBinLowEdge\(binn\)- t[ icomb ][ i ]\)>0.00002)Tj
+-3.6 -1.1 TD
+(       && binn!=0)Tj
+T*
+(       && binn!=n+1)Tj
+T*
+(       \){)Tj
+T*
+(      binn += 1;)Tj
+T*
+(    })Tj
+T*
+(    hraw_comb->SetBinContent\(binn, v[ icomb ][ i ] \);)Tj
+T*
+(    hraw_scan->SetBinContent\(binn, v[ iscan ][ i ] \);)Tj
+T*
+(    hraw_tgt->SetBinContent\(binn, v[ itgt ][ i ] \);)Tj
+0 -2.2 TD
+(    )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+2.4 0 TD
+(// cout << binn << " " << hraw_comb->GetBinContent\(binn\) << " " << hraw_scan->GetBinC)Tj
+-2.4 -1.1 TD
+(ontent\(binn\) << " " << hraw_tgt->GetBinContent\(binn\) << endl;)Tj
+/TT8 1 Tf
+0 g
+0 -2.2 TD
+(    hraw2_comb->SetBinContent\(binn, pow\( v[ icomb ][ i ], 2 \) \);)Tj
+T*
+(    hnoise_tgt->Fill\( \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+13.8 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) v[ itgt ][ i ] \);)Tj
+-17.4 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\(binn<1000\){)Tj
+-3.6 -1.1 TD
+(      hnoise_scan->Fill\( \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+15.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) v[ iscan ][ i ]\);)Tj
+-19.2 -1.1 TD
+(    })Tj
+T*
+(  })Tj
+ET
+endstream
+endobj
+17 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+19 0 obj
+<<
+/Length 5941
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(4)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 758 Tm
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// FFT)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( re,im;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *re_full = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+7.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-13.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *im_full = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+7.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-13.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *re_full_cut = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-16.2 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *im_full_cut = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+9.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-16.2 -2.2 TD
+(  hm = hraw2_comb->FFT\(hm,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+15.6 0 TD
+("MAG")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-18.6 -2.2 TD
+(  TVirtualFFT *fft = TVirtualFFT::GetCurrentTransform\(\);)Tj
+0 -3.3 TD
+(  fft->GetPointComplex\(0,re,im\);)Tj
+0 -1.1 TD
+(  printf\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("1st transform: DC component: %f\\n")Tj
+/TT8 1 Tf
+0 g
+21 0 TD
+(, re\);)Tj
+-26.4 -1.1 TD
+(  fft->GetPointComplex\(n/2+1, re, im\);)Tj
+T*
+(  printf\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("1st transform: Nyquist harmonic: %f\\n")Tj
+/TT8 1 Tf
+0 g
+23.4 0 TD
+(, re\);)Tj
+-28.8 -2.2 TD
+(  fft->GetPointsComplex\(re_full, im_full\);)Tj
+T*
+(  TVirtualFFT *fftcut = TVirtualFFT::GetCurrentTransform\(\);)Tj
+T*
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i < n ;i++\){)Tj
+-5.4 -1.1 TD
+(    re_full_cut[i] = 0;)Tj
+T*
+(    im_full_cut[i] = 0;)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i < fCut ;i++\){)Tj
+-5.4 -1.1 TD
+(    fftcut->GetPointComplex\(  i,re_full_cut[  i], im_full_cut[  i]\);)Tj
+T*
+(    fftcut->GetPointComplex\(n-i,re_full_cut[n-i], im_full_cut[n-i]\);)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  hmcut = hraw2_comb->FFT\(hmcut,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+19.2 0 TD
+("MAG")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-22.2 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i<n;i++\){)Tj
+-5.4 -1.1 TD
+(    hmcut->SetBinContent\(i+1,sqrt\(pow\(re_full_cut[i],2\)+pow\(im_full_cut[i],2\)\)\);)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+1.2 0 TD
+(TVirtualFFT)Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(::SetTransform\(0\);)Tj
+-7.8 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( m = n;)Tj
+-3 -1.1 TD
+(  TVirtualFFT *fftBackCut = TVirtualFFT::FFT\(1,&m,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+30 0 TD
+("C2R M K")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(\);)Tj
+-35.4 -1.1 TD
+(  fftBackCut->SetPointsComplex\(re_full_cut,im_full_cut\);)Tj
+T*
+(  fftBackCut->Transform\(\);)Tj
+0 -2.2 TD
+(  hbcut = TH1::TransformHisto\(fftBackCut,hbcut,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+28.2 0 TD
+("Re")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-30.6 -1.1 TD
+(  hbcut->SetName\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("hbcut")Tj
+/TT8 1 Tf
+0 g
+4.2 0 TD
+(\);)Tj
+-14.4 -1.1 TD
+(  hbcut->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.8 0 TD
+("Frequency Cut")Tj
+/TT8 1 Tf
+0 g
+9 0 TD
+(\);)Tj
+-19.8 -1.1 TD
+(  hbcut->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+11.4 0 TD
+("# of Bin")Tj
+/TT8 1 Tf
+0 g
+6 0 TD
+(\);)Tj
+-17.4 -2.2 TD
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("m=")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(<< m << endl;)Tj
+-8.4 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0; i < m ; i++\){)Tj
+-5.4 -1.1 TD
+(    hbcut2->SetBinContent\(i,hbcut->GetBinContent\(i\)/m\);)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// FFT OF SCANNING STAGE)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  TH1 *hbcut_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hbcut_scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hbcut_scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,n,RangeMin,RangeMax\);)Tj
+-32.4 -1.1 TD
+(  hbcut_scan->GetYaxis\(\)->SetRangeUser\(0.48,0.53\);)Tj
+T*
+(  hbcut_scan->GetXaxis\(\)->SetRangeUser\(-0.001,0.001\);)Tj
+T*
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// TH1 *hbcut_scan = 0;)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  hbcut_scan->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Scanning after Low Path Filter")Tj
+/TT8 1 Tf
+0 g
+19.2 0 TD
+(\);)Tj
+-33 -1.1 TD
+(  hbcut_scan->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Time[sec]")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+ET
+endstream
+endobj
+20 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+22 0 obj
+<<
+/Length 6100
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(5)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(  hbcut_scan->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Rescaled Voltage [V]")Tj
+/TT8 1 Tf
+0 g
+13.2 0 TD
+(\);)Tj
+-27.6 -1.1 TD
+(  hbcut_scan->SetStats\(0\);)Tj
+0 -2.2 TD
+(  TH1 *hm_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hm_scan")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hm_scan")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(,n,0.,Fs\);)Tj
+-27 -1.1 TD
+(  hm_scan->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+12 0 TD
+("Magnitude of the 1st transform of scanning")Tj
+/TT8 1 Tf
+0 g
+26.4 0 TD
+(\);)Tj
+-38.4 -1.1 TD
+(  hm->SetLineWidth\(2\);)Tj
+T*
+(  hm->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9.6 0 TD
+("Frequency [kHz]")Tj
+/TT8 1 Tf
+0 g
+10.2 0 TD
+(\);)Tj
+-19.8 -1.1 TD
+(  hm->SetYTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9.6 0 TD
+("Magnitude")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+-16.2 -2.2 TD
+(  TH1 *hmcut_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hmcut_scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("hmcut_scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(,n,0.,Fs\);)Tj
+-32.4 -1.1 TD
+(  hmcut->SetLineColor\(2\);)Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( re_scan,im_scan;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *re_full_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-16.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *im_full_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.2 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-16.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *re_full_cut_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-19.2 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( *im_full_cut_scan = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+12.6 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( Double_t[n];)Tj
+-19.2 -3.3 TD
+(  hm_scan = hraw_scan->FFT\(hm_scan,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+21 0 TD
+("MAG")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-24 -2.2 TD
+(  TVirtualFFT *fft_scan = TVirtualFFT::GetCurrentTransform\(\);)Tj
+0 -3.3 TD
+(  fft_scan->GetPointComplex\(0,re_scan,im_scan\);)Tj
+0 -1.1 TD
+(  printf\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("1st transform of scan: DC component: %f\\n")Tj
+/TT8 1 Tf
+0 g
+25.8 0 TD
+(, re_scan\);)Tj
+-31.2 -1.1 TD
+(  fft_scan->GetPointComplex\(n/2+1, re_scan, im_scan\);)Tj
+T*
+(  printf\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+5.4 0 TD
+("1st transform of scan: Nyquist harmonic: %f\\n")Tj
+/TT8 1 Tf
+0 g
+28.2 0 TD
+(, re_scan\);)Tj
+-33.6 -2.2 TD
+(  fft_scan->GetPointsComplex\(re_full, im_full\);)Tj
+0 -1.1 TD
+(  fft_scan->GetPointsComplex\(re_full_scan, im_full_scan\);)Tj
+0 -2.2 TD
+(  TVirtualFFT *fftcut_scan = TVirtualFFT::GetCurrentTransform\(\);)Tj
+T*
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i < n ;i++\){)Tj
+-5.4 -1.1 TD
+(    re_full_cut_scan[i] = 0;)Tj
+T*
+(    im_full_cut_scan[i] = 0;)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i < fCut_scan ;i++\){)Tj
+-5.4 -1.1 TD
+(    fftcut_scan->GetPointComplex\(  i,re_full_cut_scan[  i], im_full_cut_scan[  i]\);)Tj
+T*
+(    fftcut_scan->GetPointComplex\(n-i,re_full_cut_scan[n-i], im_full_cut_scan[n-i]\);)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  hmcut_scan = hraw_scan->FFT\(hmcut_scan,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+24.6 0 TD
+("MAG")Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+(\);)Tj
+-27.6 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i<n;i++\){)Tj
+-5.4 -1.1 TD
+(    hmcut_scan->SetBinContent\(i+1,sqrt\(pow\(re_full_cut_scan[i],2\)+pow\(im_full_cut_scan[i])Tj
+T*
+(,2\)\)\);)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.373 0.62 0.627 rg
+1.2 0 TD
+(TVirtualFFT)Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(::SetTransform\(0\);)Tj
+-7.8 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( m_scan = n;)Tj
+-3 -1.1 TD
+(  TVirtualFFT *fftBackCut_scan = TVirtualFFT::FFT\(1,&m,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+33 0 TD
+("C2R M K")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(\);)Tj
+-38.4 -1.1 TD
+(  fftBackCut_scan->SetPointsComplex\(re_full_cut_scan,im_full_cut_scan\);)Tj
+T*
+(  fftBackCut_scan->Transform\(\);)Tj
+0 -2.2 TD
+(  hbcut_scan = TH1::TransformHisto\(fftBackCut_scan,hbcut_scan,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+37.2 0 TD
+("Re")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(\);)Tj
+-39.6 -1.1 TD
+(  hbcut_scan->SetName\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.2 0 TD
+("hbcut_scan")Tj
+/TT8 1 Tf
+0 g
+7.2 0 TD
+(\);)Tj
+-20.4 -1.1 TD
+(  hbcut_scan->SetTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+13.8 0 TD
+("Frequency Cut")Tj
+/TT8 1 Tf
+0 g
+9 0 TD
+(\);)Tj
+-22.8 -1.1 TD
+(  hbcut_scan->SetXTitle\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+14.4 0 TD
+("Time[sec]")Tj
+/TT8 1 Tf
+0 g
+6.6 0 TD
+(\);)Tj
+-21 -2.2 TD
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("m_scan=")Tj
+/TT8 1 Tf
+0 g
+5.4 0 TD
+(<< m_scan << endl;)Tj
+-11.4 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0; i < m_scan ; i++\){)Tj
+-5.4 -1.1 TD
+(    hbcut_scan->SetBinContent\(i,hbcut_scan->GetBinContent\(i\)/m\);)Tj
+T*
+(  })Tj
+ET
+endstream
+endobj
+23 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+25 0 obj
+<<
+/Length 6451
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(6)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 758 Tm
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// Average of Scanning Stage)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( div = 50;)Tj
+-3 -1.1 TD
+(  TH1D *hs = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+7.8 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hs")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("Average of Scanning stage")Tj
+/TT8 1 Tf
+0 g
+16.2 0 TD
+(,n/div,RangeMin,RangeMax\);)Tj
+-32.4 -1.1 TD
+(  TH1D *hs_full = )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+10.8 0 TD
+(new)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( TH1D\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+3.6 0 TD
+("hs")Tj
+/TT8 1 Tf
+0 g
+2.4 0 TD
+(,)Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+0.6 0 TD
+("Full bin _ Average of Scanning stage")Tj
+/TT8 1 Tf
+0 g
+22.8 0 TD
+(,n,RangeMin,RangeMa)Tj
+-42 -1.1 TD
+(x\);)Tj
+T*
+(  hs->SetStats\(0\);)Tj
+T*
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( sum = 0;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( ave = 0;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0; i < n/div ; i++\){)Tj
+-5.4 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( isum=0; isum<div ; isum++\){)Tj
+-7.8 -1.1 TD
+(          sum += hraw_scan->GetBinContent\(i*div+isum\);)Tj
+T*
+(          )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+6 0 TD
+(// cout << isum << " " << hraw_scan->GetBinContent\(i*div+isum\) << " " << sum <<)Tj
+-6 -1.1 TD
+( endl;)Tj
+/TT8 1 Tf
+0 g
+T*
+(      })Tj
+T*
+(      ave = sum/div;)Tj
+T*
+(      hs->SetBinContent\(i,ave\);)Tj
+T*
+(      )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+3.6 0 TD
+(// cout << i*div << " " << sum << " " << ave << endl;)Tj
+/TT8 1 Tf
+0 g
+-3.6 -1.1 TD
+(      sum = 0;)Tj
+T*
+(      ave = 0;)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i = 0; i < n/div ; i++ \) {)Tj
+-5.4 -1.1 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( j = 0; j<div ; j++\){)Tj
+-7.8 -1.1 TD
+(          hs_full->SetBinContent\(i*div + j,\(hs->GetBinContent\(i+1\)-hs->GetBinContent\(i\)\)/)Tj
+T*
+(div*j + hs->GetBinContent\(i\)\);)Tj
+T*
+(          )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+6 0 TD
+(// cout << i*div + j << " " << hs_full->GetBinContent\(i*div+j\) << endl;)Tj
+/TT8 1 Tf
+0 g
+-6 -1.1 TD
+(      })Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// peak finding)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( diff = 0.;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(    sw   = 0;)Tj
+-3 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(const)Tj
+/TT8 1 Tf
+0 g
+3 0 TD
+( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( npeak = 100;)Tj
+-6.6 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( t_peak[ npeak ];)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( v_peak[ npeak ];)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( v_peak_scan[ npeak ];)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( v_peak_ave[ npeak ];)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( ono_scan = 2000.0 ; )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+12.6 0 TD
+(/* um/voltage */)Tj
+/TT8 1 Tf
+0 g
+-17.4 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( \( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.8 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i = 0 ; i < npeak ; i++ \) {)Tj
+-6.6 -1.1 TD
+(    t_peak[ i ] = -1.;)Tj
+T*
+(    v_peak[ i ] = -1.;)Tj
+T*
+(    v_peak_scan[ i ] = -1.;)Tj
+T*
+(    v_peak_ave[ i ] = -1.;)Tj
+T*
+(  })Tj
+T*
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(    ipeak = 0;)Tj
+-3 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( diff_sw = 300.0;)Tj
+-4.8 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+(\()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+0.6 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i=0;i<n;i++\){)Tj
+-5.4 -1.1 TD
+(    diff= \(hbcut->GetBinContent\(i+2\)\) - \(\(hbcut->GetBinContent\(i+1\)\)\);)Tj
+T*
+(    h_diff->SetBinContent\(i+1,diff\);)Tj
+0 -2.2 TD
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+(\( sw == 1 || diff > diff_sw \) {)Tj
+-3.6 -1.1 TD
+(      sw = 1;)Tj
+T*
+(    })Tj
+0 -2.2 TD
+(    )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+2.4 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+( \( sw == 1 && diff < 0. \) {)Tj
+-3.6 -1.1 TD
+(      sw = 0;)Tj
+0 -2.2 TD
+(      )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+3.6 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+( \( ipeak < npeak \) {)Tj
+-4.8 -1.1 TD
+(        t_peak[ ipeak ] = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+16.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) hbcut2->GetXaxis\(\)->GetBinCenter\(i+1\);)Tj
+-19.8 -1.1 TD
+(        v_peak[ ipeak ] = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+16.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) hraw_scan->GetBinContent\(i+1\);)Tj
+ET
+endstream
+endobj
+26 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+28 0 obj
+<<
+/Length 6737
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(7)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(        v_peak_scan[ ipeak ] = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+19.2 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) hbcut_scan->GetBinContent\(i+1\);)Tj
+-22.8 -1.1 TD
+(        v_peak_ave[ ipeak ] = \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+18.6 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) hs_full->GetBinContent\(i+1\);)Tj
+-22.2 -1.1 TD
+(        ipeak ++;)Tj
+T*
+(      })Tj
+T*
+(    })Tj
+0 -2.2 TD
+(    h_diffsw->SetBinContent\(i+1, \()Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+20.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\) 100 * sw\);)Tj
+-24 -2.2 TD
+(  })Tj
+T*
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+( \( ipeak < 0 \) {)Tj
+-2.4 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("error bin_peak < 0 ")Tj
+/TT8 1 Tf
+0 g
+12.6 0 TD
+( << endl;)Tj
+-19.8 -1.1 TD
+(  })Tj
+0 -2.2 TD
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("ipeak, time[sec], voltage[V], ono[um],LP voltage[V], ono_scan[um], ave voltage)Tj
+-6 -1.1 TD
+([V], ave ono_scan[um]  ")Tj
+/TT8 1 Tf
+0 g
+14.4 0 TD
+( << endl;)Tj
+-14.4 -1.1 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(for)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( \( )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+1.8 0 TD
+(int)Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( i = 0 ; i < ipeak ; i++ \) {)Tj
+-6.6 -1.1 TD
+(    cout << i)Tj
+T*
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << t_peak[ i ])Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak[ i ])Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak[ i ] * ono_scan)Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak_scan[ i ])Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak_scan[ i ] * ono_scan)Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak_ave[ i ])Tj
+-9 -1.1 TD
+(         << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+(" ")Tj
+/TT8 1 Tf
+0 g
+1.8 0 TD
+( << v_peak_ave[ i ] * ono_scan)Tj
+-9 -1.1 TD
+(         << endl;)Tj
+T*
+(  })Tj
+0 -2.2 TD
+(  )Tj
+/TT10 1 Tf
+0.627 0.125 0.941 rg
+1.2 0 TD
+(if)Tj
+/TT8 1 Tf
+0 g
+1.2 0 TD
+( \( ipeak == 2 \) {)Tj
+-2.4 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( tdiff = t_peak[ 1 ] - t_peak[ 0 ];)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( vdiff = v_peak[ 1 ] - v_peak[ 0 ];)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( vdiff_scan = v_peak_scan[ 1 ] - v_peak_scan[ 0 ];)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( vdiff_ave = v_peak_ave[ 1 ] - v_peak_ave[ 0 ];)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( disp = v_peak[ 1 ] * ono_scan - v_peak[ 0 ] * ono_scan;)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( disp_scan = v_peak_scan[ 1 ] * ono_scan - v_peak_scan[ 0 ] * ono_scan;)Tj
+-6 -1.1 TD
+(    )Tj
+/TT10 1 Tf
+0.133 0.545 0.133 rg
+2.4 0 TD
+(double)Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+( disp_ave = v_peak_ave[ 1 ] * ono_scan - v_peak_ave[ 0 ] * ono_scan;)Tj
+-6 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("time difference [s] = ")Tj
+/TT8 1 Tf
+0 g
+14.4 0 TD
+( << tdiff << endl;)Tj
+-21.6 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("voltage difference [V] = ")Tj
+/TT8 1 Tf
+0 g
+16.2 0 TD
+( << vdiff << endl;)Tj
+-23.4 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("voltage difference after low path of scanning [V] = ")Tj
+/TT8 1 Tf
+0 g
+32.4 0 TD
+( << vdiff_scan << endl;)Tj
+-39.6 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("Ave : voltage difference [V] = ")Tj
+/TT8 1 Tf
+0 g
+19.8 0 TD
+( << vdiff_ave << endl;)Tj
+-27 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("displacement [um] = ")Tj
+/TT8 1 Tf
+0 g
+13.2 0 TD
+( << disp << endl;)Tj
+-20.4 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("displacement after low path of scanning [um] = ")Tj
+/TT8 1 Tf
+0 g
+29.4 0 TD
+( << disp_scan << endl;)Tj
+-36.6 -1.1 TD
+(    cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+7.2 0 TD
+("Ave : displacement [um] = ")Tj
+/TT8 1 Tf
+0 g
+16.8 0 TD
+( << disp_ave << endl;)Tj
+-24 -1.1 TD
+(  })Tj
+0 -2.2 TD
+(  hnoise_tgt->Fit\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.8 0 TD
+("gaus")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-14.4 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//  hnoise_scan->Fit\("gaus"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("Mean of tgt gaussian = ")Tj
+/TT8 1 Tf
+0 g
+15 0 TD
+( << hnoise_tgt->GetFunction\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+16.8 0 TD
+("gaus")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\)->GetParameter\(1\) <)Tj
+-41.4 -1.1 TD
+(< endl;)Tj
+T*
+(  cout << )Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+6 0 TD
+("Position of tgt [um] = ")Tj
+/TT8 1 Tf
+0 g
+15 0 TD
+( << hnoise_tgt->GetFunction\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+16.8 0 TD
+("gaus")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\)->GetParameter\(1\) *)Tj
+-41.4 -1.1 TD
+( 5.00 << endl;)Tj
+0 -5.5 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// std::vector<double> sum;)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// std::vector<double> ave;)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// for\(int i=0; i<n/div ; i++\){)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     for\(int j=0; j<div; j++\){)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//         sum.push_back\(v[ iscan ][i*div + j]\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     })Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     ave.push_back\(sum[i]/div\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     cout << i*10 << " " << sum[i] << " " << ave[i] << endl;)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// })Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+ET
+endstream
+endobj
+29 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+31 0 obj
+<<
+/Length 3470
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(8)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// Draw results)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(////////////////////////////////////)Tj
+/TT8 1 Tf
+0 g
+-1.2 -3.3 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// for\(int binn = 0; binn < t[icomb].size\(\) ; binn++\){)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     cout << binn << " " << hraw_comb->GetBinContent\(binn\) << " " << hraw_scan->GetBi)Tj
+-1.2 -1.1 TD
+(nContent\(binn\) << " " << hraw_tgt->GetBinContent\(binn\) << endl;)Tj
+/TT8 1 Tf
+0 g
+T*
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// })Tj
+/TT8 1 Tf
+0 g
+-1.2 -3.3 TD
+(  gStyle->SetOptFit\(\);)Tj
+0 -1.1 TD
+(  c1->Draw\(\);)Tj
+T*
+(  c1->Divide\(2,2\);)Tj
+T*
+(  c1->cd\(1\);)Tj
+T*
+(  hraw_comb->Draw\(\);)Tj
+T*
+(  c1->cd\(2\);)Tj
+T*
+(  hraw2_comb->Draw\(\);)Tj
+T*
+(  c1->cd\(3\);)Tj
+T*
+(  hraw_scan->Draw\(\);)Tj
+T*
+(  c1->cd\(4\);)Tj
+T*
+(  hraw_tgt->Draw\(\);)Tj
+0 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// c1->Update\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// c1->Modified\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  c2->cd\(\);)Tj
+0 -1.1 TD
+(  hm->Draw\(\);)Tj
+T*
+(  hmcut->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+8.4 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-12 -2.2 TD
+(  c3->cd\(\);)Tj
+0 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// hbcut->Draw\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  hbcut2->Draw\(\);)Tj
+T*
+(  h_diffsw->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-13.8 -1.1 TD
+(  hbcut->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+8.4 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-12 -3.3 TD
+(  c4->Divide\(1,2\);)Tj
+0 -1.1 TD
+(  c4->cd\(1\);)Tj
+T*
+(  hnoise_tgt->Draw\(\);)Tj
+T*
+(  c4->cd\(2\);)Tj
+T*
+(  hnoise_scan->Draw\(\);)Tj
+0 -2.2 TD
+(  c5->cd\(\);)Tj
+0 -1.1 TD
+(  h_diff->Draw\(\);)Tj
+T*
+(  h_diffsw->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-13.8 -3.3 TD
+(  c6->cd\(\);)Tj
+0 -1.1 TD
+(  hbcut->Draw\(\);)Tj
+T*
+(  h_diffsw->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-13.8 -2.2 TD
+(  c7->cd\(\);)Tj
+0 -1.1 TD
+(  hbcut2->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+9 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-12.6 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// h_diffsw->Draw\("SAME"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  hraw_scan->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.8 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-14.4 -2.2 TD
+(  c8->cd\(\);)Tj
+0 -1.1 TD
+(  hbcut_scan->Draw\(\);)Tj
+0 -2.2 TD
+(  c9->cd\(\);)Tj
+0 -1.1 TD
+(  hm_scan->Draw\(\);)Tj
+T*
+(  hmcut_scan->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+11.4 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-15 -2.2 TD
+(  c10->cd\(\);)Tj
+0 -1.1 TD
+(  hbcut2->Draw\(\);)Tj
+T*
+(  h_diffsw->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+10.2 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+-13.8 -1.1 TD
+(  hbcut_scan->Draw\()Tj
+/TT10 1 Tf
+0.737 0.561 0.561 rg
+11.4 0 TD
+("SAME")Tj
+/TT8 1 Tf
+0 g
+3.6 0 TD
+(\);)Tj
+ET
+endstream
+endobj
+32 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT10 8 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+34 0 obj
+<<
+/Length 2039
+>>
+stream
+0.95 g
+/GS1 gs
+24 800 547 -18 re
+f
+0.7 g
+24 818 72 -36 re
+f
+BT
+/TT2 1 Tf
+12 0 0 12 38.666 802 Tm
+0 g
+0 Tc
+0 Tw
+(09/01/17)Tj
+-0.0552 -1.0667 TD
+(14:15:45)Tj
+ET
+0.7 g
+499 818 72 -36 re
+f
+BT
+/TT4 1 Tf
+28.8 0 0 28.8 526.9914 789.2 Tm
+1 g
+(9)Tj
+/TT6 1 Tf
+14 0 0 14 261.1396 786.5 Tm
+0 g
+(Alignment.C)Tj
+/TT8 1 Tf
+10 0 0 10 29 769 Tm
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// canvas->DrawFrame\(xmin,ymin,xmax,ymax\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// hist->Draw\("same"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// canvas->RedrawAxis\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(/* Wrong function */)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// TF1 *hb_scan_fit = hbcut_scan->GetFunction\("pol1"\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// TH1D *hres = new TH1D\("hres","Fit Residuals", n, RangeMin, RangeMax\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// for\(int ibin = 0; ibin < n ; ibin++\){)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     double res = \(hbcut_scan->GetBinContent\(ibin\) - hb_scan_fit->Eval\(hbcut_scan->Ge)Tj
+-1.2 -1.1 TD
+(tBinCenter\(ibin\)\)\);)Tj
+/TT8 1 Tf
+0 g
+T*
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(//     hres->SetBinContent\(ibin, res\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// })Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// c11->cd\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// hres->Draw\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -2.2 TD
+(  c11->cd\(\);)Tj
+0 -1.1 TD
+(  hs->Draw\(\);)Tj
+0 -2.2 TD
+(  c12->cd\(\);)Tj
+0 -1.1 TD
+(  hs_full->Draw\(\);)Tj
+0 -2.2 TD
+(  tfile->Write\(\);)Tj
+0 -1.1 TD
+(  )Tj
+/TT12 1 Tf
+0.698 0.133 0.133 rg
+1.2 0 TD
+(// tfile->Close\(\);)Tj
+/TT8 1 Tf
+0 g
+-1.2 -4.4 TD
+(})Tj
+ET
+endstream
+endobj
+35 0 obj
+<<
+/ProcSet [/PDF /Text ]
+/Font <<
+/TT2 4 0 R
+/TT4 5 0 R
+/TT6 6 0 R
+/TT8 7 0 R
+/TT12 9 0 R
+>>
+/ExtGState <<
+/GS1 10 0 R
+>>
+>>
+endobj
+10 0 obj
+<<
+/Type /ExtGState
+/SA false
+/SM 0.02
+/OP false
+/op false
+/OPM 1
+/BG2 /Default
+/UCR2 /Default
+/HT /Default
+/TR2 /Default
+>>
+endobj
+36 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 750
+/CapHeight 676
+/Descent -250
+/Flags 262178
+/FontBBox [-168 -218 1000 935]
+/FontName /Times-Bold
+/ItalicAngle 0
+/StemV 133
+/XHeight 461
+/StemH 139
+>>
+endobj
+37 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 770
+/CapHeight 718
+/Descent -229
+/Flags 262176
+/FontBBox [-170 -228 1003 962]
+/FontName /Helvetica-Bold
+/ItalicAngle 0
+/StemV 133
+/XHeight 532
+/StemH 140
+>>
+endobj
+38 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 750
+/CapHeight 662
+/Descent -250
+/Flags 34
+/FontBBox [-168 -218 1000 898]
+/FontName /Times-Roman
+/ItalicAngle 0
+/StemV 84
+/XHeight 450
+/StemH 84
+>>
+endobj
+39 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 753
+/CapHeight 562
+/Descent -246
+/Flags 35
+/FontBBox [-28 -250 628 805]
+/FontName /Courier
+/ItalicAngle 0
+/StemV 51
+/XHeight 426
+/StemH 51
+>>
+endobj
+40 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 753
+/CapHeight 562
+/Descent -246
+/Flags 262179
+/FontBBox [-113 -250 749 801]
+/FontName /Courier-Bold
+/ItalicAngle 0
+/StemV 133
+/XHeight 439
+/StemH 84
+>>
+endobj
+41 0 obj
+<<
+/Type /FontDescriptor
+/Ascent 753
+/CapHeight 562
+/Descent -246
+/Flags 99
+/FontBBox [-28 -250 742 805]
+/FontName /Courier-Oblique
+/ItalicAngle -15
+/StemV 51
+/XHeight 426
+/StemH 51
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 47
+/LastChar 58
+/Widths [278 500 500 0 0 500 500 0 500 0 500 333 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Times-Bold
+/FontDescriptor 36 0 R
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 49
+/LastChar 57
+/Widths [556 556 556 556 556 556 556 556 556 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Helvetica-Bold
+/FontDescriptor 37 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 46
+/LastChar 116
+/Widths [250 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 722 0 667 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 444 0 500 0 278 0 0 278 778 
+500 0 0 0 0 0 278 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Times-Roman
+/FontDescriptor 38 0 R
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 32
+/LastChar 125
+/Widths [600 600 0 600 0 0 600 0 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 0 
+0 0 600 600 600 600 600 600 600 0 0 0 600 600 600 600 
+600 0 600 600 600 600 600 600 600 600 0 600 0 600 0 600 
+0 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Courier
+/FontDescriptor 39 0 R
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 32
+/LastChar 146
+/Widths [600 0 600 600 0 600 0 0 0 0 0 0 600 0 600 600 
+600 600 600 600 600 600 600 600 600 600 600 0 600 600 0 0 
+0 600 600 600 600 600 600 600 600 0 0 600 600 600 600 0 
+600 0 600 600 600 600 600 600 0 600 0 600 600 600 0 600 
+0 600 600 600 600 600 600 600 600 600 0 600 600 600 600 600 
+600 600 600 600 600 600 600 600 0 600 600 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 600 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Courier-Bold
+/FontDescriptor 40 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/FirstChar 32
+/LastChar 125
+/Widths [600 0 600 0 0 0 0 0 600 600 600 600 600 600 600 600 
+600 600 600 600 0 0 0 600 0 0 600 600 600 600 600 0 
+0 600 600 600 600 600 600 600 600 600 0 600 0 600 600 600 
+0 0 600 600 600 600 600 600 600 600 0 600 0 600 0 600 
+0 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 0 600 600 600 600 600 600 600 600 600 600 0 600 ]
+/Encoding /WinAnsiEncoding
+/BaseFont /Courier-Oblique
+/FontDescriptor 41 0 R
+>>
+endobj
+1 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 3 0 R
+/Contents 2 0 R
+>>
+endobj
+12 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 14 0 R
+/Contents 13 0 R
+>>
+endobj
+15 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 17 0 R
+/Contents 16 0 R
+>>
+endobj
+18 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 20 0 R
+/Contents 19 0 R
+>>
+endobj
+21 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 23 0 R
+/Contents 22 0 R
+>>
+endobj
+24 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 26 0 R
+/Contents 25 0 R
+>>
+endobj
+27 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 29 0 R
+/Contents 28 0 R
+>>
+endobj
+30 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 32 0 R
+/Contents 31 0 R
+>>
+endobj
+33 0 obj
+<<
+/Type /Page
+/Parent 11 0 R
+/Resources 35 0 R
+/Contents 34 0 R
+>>
+endobj
+42 0 obj
+<<
+/S /D
+>>
+endobj
+43 0 obj
+<<
+/Nums [0 42 0 R ]
+>>
+endobj
+11 0 obj
+<<
+/Type /Pages
+/Kids [1 0 R 12 0 R 15 0 R 18 0 R 21 0 R 24 0 R 27 0 R 30 0 R 33 0 R]
+/Count 9
+/MediaBox [0 0 595 842]
+>>
+endobj
+44 0 obj
+<<
+/CreationDate (D:20170921193525+09'00')
+/ModDate (D:20170921193525+09'00')
+/Producer (Apple pstopdf)
+>>
+endobj
+45 0 obj
+<<
+/Type /Catalog
+/Pages 11 0 R
+/PageLabels 43 0 R
+>>
+endobj
+xref
+0 46
+0000000000 65535 f 
+0000059045 00000 n 
+0000000016 00000 n 
+0000007156 00000 n 
+0000056757 00000 n 
+0000056959 00000 n 
+0000057161 00000 n 
+0000057491 00000 n 
+0000058002 00000 n 
+0000058542 00000 n 
+0000055417 00000 n 
+0000059866 00000 n 
+0000059126 00000 n 
+0000007309 00000 n 
+0000016251 00000 n 
+0000059210 00000 n 
+0000016405 00000 n 
+0000023307 00000 n 
+0000059294 00000 n 
+0000023461 00000 n 
+0000029455 00000 n 
+0000059378 00000 n 
+0000029609 00000 n 
+0000035762 00000 n 
+0000059462 00000 n 
+0000035904 00000 n 
+0000042408 00000 n 
+0000059546 00000 n 
+0000042562 00000 n 
+0000049352 00000 n 
+0000059630 00000 n 
+0000049506 00000 n 
+0000053029 00000 n 
+0000059714 00000 n 
+0000053183 00000 n 
+0000055275 00000 n 
+0000055558 00000 n 
+0000055760 00000 n 
+0000055966 00000 n 
+0000056163 00000 n 
+0000056354 00000 n 
+0000056556 00000 n 
+0000059798 00000 n 
+0000059826 00000 n 
+0000060004 00000 n 
+0000060127 00000 n 
+trailer
+<<
+/Size 46
+/Root 45 0 R
+/Info 44 0 R
+/ID [<40d997f5474d0d2f9d48319948d488d4><40d997f5474d0d2f9d48319948d488d4>]
+>>
+startxref
+60197
+%%EOF
